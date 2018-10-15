@@ -1,0 +1,29 @@
+{
+  "name": "gulp-starter",
+  "version": "0.0.1",
+  "description": "Starter project for develop html template with gulp.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masudafsar/gulp-starter.git"
+  },
+  "keywords": [
+    "gulp.js"
+  ],
+  "author": "Masud Afsar (http://masud.afsar.info/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masudafsar/gulp-starter/issues"
+  },
+  "homepage": "https://github.com/masudafsar/gulp-starter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-ejs": "^3.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-util": "^3.0.8"
+  }
+}
