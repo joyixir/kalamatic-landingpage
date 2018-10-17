@@ -91,6 +91,6 @@ gulp.task('clean', [], function () {
 });
 
 gulp.task('deploy', function () {
-    return gulp.src('./dist/**/*')
+    return gulp.src('./dist/**/*', {dot: true})
         .pipe(deploy())
 });
