@@ -59,7 +59,7 @@ gulp.task('build:img', [], function () {
 });
 
 gulp.task('build:statics', [], function () {
-    gulp.src('./src/statics/**/*')
+    gulp.src('./src/statics/**/*', {dot: true})
         .pipe(gulp.dest('./dist/'))
         .pipe(connect.reload());
 });
