@@ -1,6 +1,6 @@
 {
-    "name": "\u06a9\u0644\u0645\u0627\u062a\u06cc\u06a9",
-    "short_name": "\u06a9\u0644\u0645\u0627\u062a\u06cc\u06a9",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,8 +8,8 @@
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
-            "sizes": "256x256",
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
