@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fa-ir">
-
+<% VERSION = "1.0.1"; %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,7 +16,7 @@
     <meta property="og:description"
           content="کلماتیک یک بازی حدس کلمه بی‌نهایت جذاب و اعتیادآور که این روزها همه در موردش صحبت میکنن. آسون شروع میشه سریع شما رو مشغول میکنه. فکر میکنی چندتا کلمه بلدی؟! مشابه بازی آمیرزا برای iOS (آیفون) "/>
     <meta property="og:url" content="http://www.kalamatic.com/"/>
-    <meta property="og:image" content="/assets/img/logo.png"/>
+    <meta property="og:image" content="/assets/img/logo.png?v=<%- VERSION %>"/>
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="http://www.kalamatic.com/">
@@ -24,20 +24,20 @@
     <meta name="twitter:title" content="کلماتیک | بازی حدس کلمه">
     <meta name="twitter:description"
           content="کلماتیک یک بازی حدس کلمه بی‌نهایت جذاب و اعتیادآور که این روزها همه در موردش صحبت میکنن. آسون شروع میشه سریع شما رو مشغول میکنه. فکر میکنی چندتا کلمه بلدی؟! مشابه بازی آمیرزا برای iOS (آیفون) ">
-    <meta name="twitter:image" content="/assets/img/logo.png">
+    <meta name="twitter:image" content="/assets/img/logo.png?v=<%- VERSION %>">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4a2359">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=<%- VERSION %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=<%- VERSION %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=<%- VERSION %>">
+    <link rel="manifest" href="/site.webmanifest?v=<%- VERSION %>">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<%- VERSION %>" color="#4a2359">
     <meta name="msapplication-TileColor" content="#4a2359">
     <meta name="theme-color" content="#4a2359">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=<%- VERSION %>">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102933584-6"></script>
@@ -143,7 +143,7 @@
 <%- include('parts/footer') %>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/app.js?v=<%- VERSION %>"></script>
 </body>
 
 </html>
