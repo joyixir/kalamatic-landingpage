@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "Starter project for develop html template with gulp.js",
   "scripts": {
-      "start": "gulp server",
-      "build": "gulp build",
-      "clean": "gulp clean",
-      "deploy": "gulp clean && gulp build && gulp deploy"
+    "start": "gulp server",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "deploy": "gulp clean && gulp build && gulp deploy"
   },
   "repository": {
     "type": "git",
