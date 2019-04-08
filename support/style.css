@@ -19,6 +19,31 @@ a:hover{text-decoration: none; cursor:pointer;}
 
 .page-preloader{position: fixed;top: 0;bottom: 0;width: 100%;z-index:100000;background:#FFFFFF url("img/pageload-spinner.gif") no-repeat center center;}
 
+/* = Web Fonts
+-------------------------------------------------------------- */
+
+@font-face {
+	font-family:'Sahel-Black';
+	src: url('./fonts/Sahel-Black/Sahel-Black.woff2');
+	src: url('./fonts/Sahel-Black/Sahel-Black.woff2') format('woff2'),
+	url('./fonts/Sahel-Black/Sahel-Black.woff') format('woff'),
+	url('./fonts/Sahel-Black/Sahel-Black.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/Sahel-Black/Sahel-Black.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'Sahel-Bold';
+	src: url('./fonts/Sahel-Bold/Sahel-Bold.woff2');
+	src: url('./fonts/Sahel-Bold/Sahel-Bold.woff2') format('woff2'),
+	url('./fonts/Sahel-Bold/Sahel-Bold.woff') format('woff'),
+	url('./fonts/Sahel-Bold/Sahel-Bold.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/Sahel-Bold/Sahel-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* = Blocs
 -------------------------------------------------------------- */
 
@@ -74,6 +99,57 @@ a:hover{text-decoration: none; cursor:pointer;}
 }
 .bloc-fill-screen .fill-bloc-bottom-edge{
 	align-self: flex-end;
+}
+
+
+/* Dark theme */
+
+.d-bloc{
+	color:rgba(255,255,255,.7);
+}
+.d-bloc button:hover{
+	color:rgba(255,255,255,.9);
+}
+.d-bloc .icon-round,.d-bloc .icon-square,.d-bloc .icon-rounded,.d-bloc .icon-semi-rounded-a,.d-bloc .icon-semi-rounded-b{
+	border-color:rgba(255,255,255,.9);
+}
+.d-bloc .divider-h span{
+	border-color:rgba(255,255,255,.2);
+}
+.d-bloc .a-btn,.d-bloc .navbar a, .d-bloc a .icon-sm, .d-bloc a .icon-md, .d-bloc a .icon-lg, .d-bloc a .icon-xl, .d-bloc h1 a, .d-bloc h2 a, .d-bloc h3 a, .d-bloc h4 a, .d-bloc h5 a, .d-bloc h6 a, .d-bloc p a{
+	color:rgba(255,255,255,.6);
+}
+.d-bloc .a-btn:hover,.d-bloc .navbar a:hover,.d-bloc a:hover .icon-sm, .d-bloc a:hover .icon-md, .d-bloc a:hover .icon-lg, .d-bloc a:hover .icon-xl, .d-bloc h1 a:hover, .d-bloc h2 a:hover, .d-bloc h3 a:hover, .d-bloc h4 a:hover, .d-bloc h5 a:hover, .d-bloc h6 a:hover, .d-bloc p a:hover{
+	color:rgba(255,255,255,1);
+}
+.d-bloc .navbar-toggle .icon-bar{
+	background:rgba(255,255,255,1);
+}
+.d-bloc .btn-wire,.d-bloc .btn-wire:hover{
+	color:rgba(255,255,255,1);
+	border-color:rgba(255,255,255,1);
+}
+.d-bloc .card{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover{
+	color:rgba(0,0,0,.7);
+}
+.d-bloc .card icon{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover{
+	color:rgba(0,0,0,1);
+}
+.d-bloc .card .btn-wire, .d-bloc .card .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
 }
 
 
@@ -245,6 +321,37 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .container{
 	max-width:1140px;
 }
+.h1-style{
+	font-family:"Sahel-Black";
+	font-size:30px;
+}
+.h3-style{
+	font-family:"Sahel-Bold";
+	font-size:20px;
+}
+.h3-bloc-1-style{
+	font-family:"Sahel-Black";
+}
+.p-style{
+	font-family:"Sahel-Bold";
+}
+.h3-سوالات-متداول-style{
+	font-family:"Sahel-Black";
+}
+.p-bloc-1-style{
+	font-family:"Sahel-Bold";
+}
+.h4-style{
+	font-family:"Sahel-Black";
+}
+.h4-دانلود-کلماتیک-style{
+	font-family:"Sahel-Black";
+}
+.h4-bloc-2-style{
+	font-family:"Sahel-Black";
+	font-size:15px;
+	width:100%;
+}
 
 /* = Colour
 -------------------------------------------------------------- */
@@ -252,8 +359,8 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 
 /* Text colour styles */
 
-.tc-gray-asparagus{
-	color:#4C4F3C!important;
+.tc-white{
+	color:#FFFFFF!important;
 }
 
 /* Button colour styles */
@@ -265,14 +372,11 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 
 /* Bloc image backgrounds */
 
-.bg-mountains{
-	background-image:url("img/mountains.jpg");
-}
 .bg-citysky-overlay{
 	background-image:url("img/citysky-overlay.png");
 }
-.bg-map{
-	background-image:url("img/map.jpg");
+.bg-Bg{
+	background-image:url("img/Bg.jpg");
 }
 
 
@@ -352,6 +456,12 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.container-div-style{
 		height:241px;
+	}
+	.h1-style{
+		font-size:24px;
+	}
+	.h3-style{
+		font-size:15px;
 	}
 	
 }
