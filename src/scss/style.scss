@@ -37,7 +37,7 @@ body {
     flex-direction: column;
     direction: rtl;
     font-family: 'Sahel', serif;
-    background: #8a467d url("../img/bg.png") fixed;
+    background: #8a467d url("../img/bg.jpg") fixed;
 
     &.welcome {
         // background: #512da8;
@@ -190,6 +190,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 footer.page-footer {
+    padding-top: 0 !important;
+
+    .footer-copyright{
+        height: 70px !important;
+        line-height: 70px;
+    }
     p {
         margin: 0;
 
