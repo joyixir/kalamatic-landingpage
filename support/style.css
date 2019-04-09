@@ -4,6 +4,7 @@
 -----------------------------------------------------------------------------------*/
  
 body{
+	font-family:"Sahel-Bold";
 	margin:0;
 	padding:0;
     background:#FFFFFF;
@@ -133,7 +134,7 @@ a:hover{text-decoration: none; cursor:pointer;}
 	color:rgba(0,0,0,.5);
 }
 .d-bloc .card button:hover{
-	color:rgba(0,0,0,.7);
+	color:rgba(0, 0, 0, 0.7);
 }
 .d-bloc .card icon{
 	border-color:rgba(0,0,0,.7);
@@ -305,7 +306,7 @@ button{
 -------------------------------------------------------------- */
 
 h1,h2,h3,h4,h5,h6,p,label,.btn,a{
-	font-family:"Helvetica";
+	font-family:"Sahel-Bold";
 }
 .container{
 	max-width:1140px;
