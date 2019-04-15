@@ -10,7 +10,8 @@ body{
     background:#FFFFFF;
     overflow-x:hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
 }
 a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
 a:hover{text-decoration: none; cursor:pointer;}
@@ -191,7 +192,7 @@ a:hover{text-decoration: none; cursor:pointer;}
 	padding-right:inherit;
 }
 /* Handle Multi Level Navigation */.navbar-light .navbar-nav .nav-link {
-	color: rgb(64, 64, 64);
+	color: white;
 }
 .btco-menu li > a {
 	padding: 10px 15px;
@@ -241,7 +242,7 @@ button{
 }
 .a-block{
 	width:100%;
-	text-align:left;
+	text-align:center;
 	display: inline-block;
 }
 .text-center .a-block{
@@ -474,7 +475,7 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 		width:100%;
 	}
 	.link-دانلود-کلماتیک-style{
-		;
+		
 	}
 	.link-bloc-1-style{
 		font-weight:bold;
