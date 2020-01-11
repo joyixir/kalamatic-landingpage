@@ -8,8 +8,8 @@
     font-weight: normal;
 }
 
-$dark: #4a2359;
-$light: #f9907a;
+$dark: #371140;
+$light: #fb5a4f;
 
 @font-face {
     font-family: Sahel;
@@ -37,7 +37,9 @@ body {
     flex-direction: column;
     direction: rtl;
     font-family: 'Sahel', serif;
-    background: #8a467d url("../img/bg.jpg") fixed;
+    background: $light url("../img/bg.jpg") fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     &.welcome {
         // background: #512da8;
