@@ -142,4 +142,6 @@ google.com, pub-9051175444104661, RESELLER
 telaria.com, rwd19-1897563, RESELLER, 1a4e959a1b50034a
 tremorhub.com, rwd19-1897563, RESELLER, 1a4e959a1b50034a
 
+pangleglobal.com, 55199,DIRECT
+
 google.com, pub-3313515664896857, DIRECT, f08c47fec0942fa0
