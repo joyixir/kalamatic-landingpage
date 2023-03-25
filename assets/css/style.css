@@ -64,8 +64,8 @@ body {
             padding: 0 15px;
             line-height: 64px; } }
 
-.purple-bg {
-  background-color: #371140 !important; }
+.black-bg {
+  background-color: #000 !important; }
 
 .purple-bg-lighten {
   background-color: #8a467d !important; }
