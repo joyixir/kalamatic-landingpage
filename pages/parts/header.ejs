@@ -1,47 +1,20 @@
-<header class="navbar-fixed">
-    <nav class="purple-bg">
-        <div class="container">
-            <div class="row">
-
-                <div class="col s12">
-                    <ul class="right bold">
-                        <li><a href="/">کلماتیک</a></li>
-                    </ul>
-                    <ul class="left socials">
-                        <li class="right">
-                            <a href="http://www.ordibeheshtstudio.com/" target="_blank"
-                               class="fa fa-globe fa-2x waves-effect waves-light">
-                                <span class="icon-text"></span>
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="mailto:info@ordibeheshtstudio.com" target="_blank" rel="nofollow"
-                               class="fa fa-envelope fa-2x waves-effect waves-light">
-                                <span class="icon-text"></span>
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="https://www.instagram.com/ordibeheshtstudio/" target="_blank" rel="nofollow"
-                               class="fa fa-instagram fa-2x waves-effect waves-light">
-                                <span class="icon-text"></span>
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="https://twitter.com/ordibeheshtstu/" target="_blank" rel="nofollow"
-                               class="fa fa-twitter-square fa-2x waves-effect waves-light">
-                                <span class="icon-text"></span>
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="https://www.facebook.com/Ordibehesht.Studio/" target="_blank" rel="nofollow"
-                               class="fa fa-facebook-square fa-2x waves-effect waves-light">
-                                <span class="icon-text"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
+<header class="navbar-fixed site-header">
+    <nav class="site-nav">
+        <div class="container site-nav-inner">
+            <ul class="header-socials">
+                <% LANDING_HEADER.actions.forEach(function (action) { %>
+                    <li>
+                        <a href="<%- action.href %>"
+                           class="header-social-link" aria-label="<%- action.label %>"<% if (action.target) { %> target="<%- action.target %>"<% } %><% if (action.rel) { %> rel="<%- action.rel %>"<% } %><% if (action.chatTrigger) { %> data-chat-trigger<% } %><% if (action.chatDirect) { %> data-chat-direct<% } %><% if (action.chatDirect && !LANDING_CHAT_ENABLED) { %> hidden<% } %>>
+                            <img class="header-social-image" src="<%- action.imageSrc %>" alt="" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+            <a class="header-brand-link" href="/">
+                <span class="header-brand-title header-brand-title--compact"><%- LANDING_HEADER.mobileTitle %></span>
+                <span class="header-brand-title header-brand-title--full"><%- LANDING_HEADER.title %></span>
+            </a>
         </div>
     </nav>
 </header>

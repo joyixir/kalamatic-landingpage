@@ -1,5 +1,10 @@
 /.idea/
 /logs
+/Logs/
+/Assets/
+/Library/
+/UserSettings/
+/public/
 *.log
 npm-debug.log*
 /node_modules/

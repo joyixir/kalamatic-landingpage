@@ -1,0 +1,58 @@
+<% if (LANDING_SUPPORT.enabled) { %>
+    <% 
+        const faqPreviewCount = LANDING_SUPPORT.faqPreviewCount || 3;
+        const visibleFaqs = LANDING_SUPPORT.faqs.slice(0, faqPreviewCount);
+        const hiddenFaqs = LANDING_SUPPORT.faqs.slice(faqPreviewCount);
+    %>
+    <section class="support-section" id="<%- LANDING_SUPPORT.sectionId %>">
+        <div class="support-section-inner">
+            <div class="support-grid">
+                <article class="support-card support-card--faq" id="support-faq">
+                    <h3 class="support-card-title"><%- LANDING_SUPPORT.faqTitle %></h3>
+                    <div class="support-faq-list">
+                        <% visibleFaqs.forEach(function (faq) { %>
+                            <details class="support-faq-item">
+                                <summary class="support-faq-question"><%- faq.question %></summary>
+                                <p class="support-faq-answer"><%- faq.answer %></p>
+                            </details>
+                        <% }) %>
+                        <% if (hiddenFaqs.length > 0) { %>
+                            <details class="support-faq-more">
+                                <summary class="support-faq-more-toggle">
+                                    <span class="support-faq-more-label support-faq-more-label--closed"><%- LANDING_SUPPORT.faqExpandLabel %></span>
+                                    <span class="support-faq-more-label support-faq-more-label--open"><%- LANDING_SUPPORT.faqCollapseLabel %></span>
+                                </summary>
+                                <div class="support-faq-more-list">
+                                    <% hiddenFaqs.forEach(function (faq) { %>
+                                        <details class="support-faq-item">
+                                            <summary class="support-faq-question"><%- faq.question %></summary>
+                                            <p class="support-faq-answer"><%- faq.answer %></p>
+                                        </details>
+                                    <% }) %>
+                                </div>
+                            </details>
+                        <% } %>
+                    </div>
+                </article>
+
+                <article class="support-card support-card--contact" id="support-contact">
+                    <h3 class="support-card-title"><%- LANDING_SUPPORT.contactTitle %></h3>
+                    <p class="support-card-body"><%- LANDING_SUPPORT.contactBody %></p>
+                    <div class="support-actions">
+                        <% if (LANDING_SUPPORT.chatAction) { %>
+                            <a class="support-action support-action--chat support-chat-trigger" href="<%- LANDING_SUPPORT.chatAction.href %>" data-chat-trigger data-chat-direct<% if (!LANDING_CHAT_ENABLED) { %> hidden<% } %>>
+                                <%- LANDING_SUPPORT.chatAction.label %>
+                            </a>
+                        <% } %>
+                        <a class="support-action support-action--primary" href="<%- LANDING_SUPPORT.contactLink.href %>"<% if (LANDING_SUPPORT.contactLink.target) { %> target="<%- LANDING_SUPPORT.contactLink.target %>"<% } %><% if (LANDING_SUPPORT.contactLink.rel) { %> rel="<%- LANDING_SUPPORT.contactLink.rel %>"<% } %>>
+                            <%- LANDING_SUPPORT.contactLink.label %>
+                        </a>
+                        <a class="support-action support-action--secondary" href="<%- LANDING_SUPPORT.emailLink.href %>">
+                            <%- LANDING_SUPPORT.emailLink.label %>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+<% } %>

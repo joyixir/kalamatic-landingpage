@@ -1,38 +1,35 @@
 {
-  "name": "gulp-starter",
+  "name": "kalamatic-landingpage",
   "version": "0.0.1",
-  "description": "Starter project for develop html template with gulp.js",
+  "description": "Landing page for the Kalamatic mobile game",
+  "private": true,
   "scripts": {
-    "start": "gulp server",
+    "dev": "gulp dev",
+    "start": "npm run dev",
     "build": "gulp build",
     "clean": "gulp clean",
-    "deploy": "gulp clean && gulp build && gulp deploy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/masudafsar/gulp-starter.git"
+    "verify:dist": "node scripts/verify-dist.js",
+    "deploy:live": "npm run build && npm run verify:dist && gulp deploy",
+    "deploy": "npm run deploy:live"
   },
   "keywords": [
-    "gulp.js"
+    "landing-page",
+    "gulp",
+    "ejs",
+    "scss"
   ],
-  "author": "Masud Afsar (http://masud.afsar.info/)",
+  "author": "Ordibehesht Studio",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/masudafsar/gulp-starter/issues"
-  },
-  "homepage": "https://github.com/masudafsar/gulp-starter#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-connect": "^5.0.0",
-    "gulp-ejs": "^3.0.1",
+    "browser-sync": "^3.0.2",
+    "fancy-log": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-ejs": "^5.1.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-util": "^3.0.8"
-  },
-  "dependencies": {
-    "event-stream": "^4.0.1"
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.77.8"
   }
 }

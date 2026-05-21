@@ -1,96 +1,137 @@
 'use strict';
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var clean = require('gulp-clean');
-var concat = require('gulp-concat');
-var connect = require('gulp-connect');
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
-var ejs = require('gulp-ejs');
-var deploy = require('gulp-gh-pages');
+const fs = require('fs');
+const path = require('path');
+const { src, dest, series, parallel, watch } = require('gulp');
+const browserSync = require('browser-sync').create();
+const log = require('fancy-log');
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass')(require('sass'));
+const ejs = require('gulp-ejs');
+const ghPages = require('gulp-gh-pages');
+const rename = require('gulp-rename');
+const adsAndVerificationConfig = require('./src/statics/ads-and-verification-config');
+const chatSiteConfig = require('./src/statics/chat-config');
 
-gulp.task('default', [], function () {
-    // write default tasks here
-});
+const paths = {
+    styles: './src/scss/*.scss',
+    styleWatch: './src/scss/**/*.scss',
+    scripts: './src/js/**/*.js',
+    pages: './pages/*.ejs',
+    partials: './pages/**/*.ejs',
+    fonts: './src/fonts/**/*',
+    images: './src/img/**/*',
+    statics: [
+        './src/statics/**/*',
+        '!./src/statics/ads-and-verification-config.js',
+        '!./src/statics/ads-and-verification{,/**}'
+    ],
+    adsAndVerificationDir: './src/statics/ads-and-verification',
+    dist: './dist'
+};
 
-gulp.task('server', ['build', 'watch'], function () {
-    connect.server({
-        port: 12345,
-        root: './',
-        livereload: true
-    });
-});
+function clean(done) {
+    fs.rmSync(paths.dist, { recursive: true, force: true });
+    done();
+}
 
-gulp.task('build', [
-    'build:css',
-    'build:js',
-    'build:html',
-    'build:font',
-    'build:img',
-    'build:statics',
-]);
-
-gulp.task('build:css', [], function () {
-    gulp.src('./src/scss/*.scss')
+function styles() {
+    return src(paths.styles)
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/assets/css'))
-        .pipe(connect.reload());
-});
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('./dist/assets/css'))
+        .pipe(browserSync.stream({ match: '**/*.css' }));
+}
 
-gulp.task('build:js', [], function () {
-    gulp.src('./src/js/**/*.js')
-        .pipe(gulp.dest('./dist/assets/js'))
-        .pipe(connect.reload());
-});
+function scripts() {
+    return src(paths.scripts)
+        .pipe(dest('./dist/assets/js'));
+}
 
-gulp.task('build:font', [], function () {
-    gulp.src('./src/fonts/**/*')
-        .pipe(gulp.dest('./dist/assets/fonts'))
-        .pipe(connect.reload());
-});
+function fonts() {
+    return src(paths.fonts)
+        .pipe(dest('./dist/assets/fonts'));
+}
 
-gulp.task('build:img', [], function () {
-    gulp.src('./src/img/**/*')
-        .pipe(gulp.dest('./dist/assets/img'))
-        .pipe(connect.reload());
-});
+function images() {
+    return src(paths.images)
+        .pipe(dest('./dist/assets/img'));
+}
 
-gulp.task('build:statics', [], function () {
-    gulp.src('./src/statics/**/*', {dot: true})
-        .pipe(gulp.dest('./dist/'))
-        .pipe(connect.reload());
-});
+function statics() {
+    return src(paths.statics, { dot: true })
+        .pipe(dest(paths.dist));
+}
 
-gulp.task('build:html', [], function () {
-    gulp.src('./pages/*.ejs')
-        .pipe(ejs(null, null, {
-            ext: '.htm'
-        }).on('error', gutil.log))
-        .pipe(gulp.dest('./dist'))
-        .pipe(connect.reload());
-});
+function adsAndVerificationRootFiles() {
+    const configuredFiles = adsAndVerificationConfig.adsAndVerification.files;
 
-gulp.task('watch', [], function () {
-    gulp.watch('./src/scss/**/*.scss', ['build:css']);
-    gulp.watch('./src/js/**/*.js', ['build:js']);
-    gulp.watch('./pages/**/*.ejs', ['build:html']);
-    gulp.watch('./src/img/**/*', ['build:img']);
-    gulp.watch('./src/fonts/**/*', ['build:font']);
-    gulp.watch('./src/statics/**/*', ['build:statics']);
-});
+    for (const fileName of configuredFiles) {
+        fs.rmSync(path.join(paths.dist, fileName), { force: true });
+    }
 
-gulp.task('clean', [], function () {
-    gulp.src([
-        './dist/*',
-        '!./dist/**/.keep'
-    ], {read: false})
-        .pipe(clean());
-});
+    if (!adsAndVerificationConfig.adsAndVerification.enabled) {
+        return Promise.resolve();
+    }
 
-gulp.task('deploy', function () {
-    return gulp.src('./dist/**/*', {dot: true})
-        .pipe(deploy())
-});
+    const rootFiles = configuredFiles.map((fileName) => path.join(paths.adsAndVerificationDir, fileName));
+
+    return src(rootFiles, { dot: true, base: paths.adsAndVerificationDir })
+        .pipe(dest(paths.dist));
+}
+
+function html() {
+    return src([paths.pages, '!./pages/landing-data.ejs'])
+        .pipe(ejs({
+            CHAT_SITE_CONFIG: chatSiteConfig
+        }, {}, { ext: '.html' }).on('error', function (err) {
+            log.error(err);
+            this.emit('end');
+        }))
+        .pipe(rename({ extname: '.html' }))
+        .pipe(dest(paths.dist));
+}
+
+function reload(done) {
+    browserSync.reload();
+    done();
+}
+
+function serve(done) {
+    browserSync.init({
+        port: 12345,
+        host: '127.0.0.1',
+        server: {
+            baseDir: paths.dist
+        },
+        notify: false,
+        open: false,
+        online: false,
+        ui: false
+    }, done);
+}
+
+function watchFiles() {
+    watch(paths.styleWatch, styles);
+    watch(paths.scripts, series(scripts, reload));
+    watch(paths.partials, series(html, reload));
+    watch(paths.images, series(images, reload));
+    watch(paths.fonts, series(fonts, reload));
+    watch(['./src/statics/ads-and-verification-config.js', './src/statics/ads-and-verification/**/*'], series(adsAndVerificationRootFiles, reload));
+    return watch(paths.statics, series(statics, reload));
+}
+
+function deploy() {
+    return src('./dist/**/*', { dot: true })
+        .pipe(ghPages());
+}
+
+const build = series(clean, parallel(styles, scripts, html, fonts, images, statics, adsAndVerificationRootFiles));
+const dev = series(build, serve, watchFiles);
+
+exports.clean = clean;
+exports.build = build;
+exports.dev = dev;
+exports.deploy = series(build, deploy);
+exports.default = build;

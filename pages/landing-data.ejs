@@ -1,0 +1,266 @@
+<% 
+// Edit this file when you want to change landing content, links, or assets.
+// Main landing visuals live in:
+// - src/img/app-icon.png
+// - src/img/app-mockup.png
+// - src/img/header-icons/
+// - src/img/store-badges/
+// Browser and home-screen icons keep their standard filenames in src/statics/.
+// If you also change the browser/app icon, replace:
+// - src/statics/favicon.svg
+// - src/statics/favicon-96x96.png
+// - src/statics/apple-touch-icon.png
+// - src/statics/favicon-16x16.png
+// - src/statics/favicon-32x32.png
+// - src/statics/favicon.ico
+// - src/statics/android-chrome-192x192.png
+// - src/statics/android-chrome-512x512.png
+// - src/statics/safari-pinned-tab.svg
+
+VERSION = "3.0.2";
+LANDING_ASSET_VERSIONS = {
+    appIcon: VERSION,
+    appMockup: "4.0.0",
+    appStoreBadge: "2.5.1",
+    storeBadges: "4.5.1"
+};
+
+// Core text
+LANDING_APP_NAME = "کلماتیک";
+LANDING_BROWSER_TITLE = LANDING_APP_NAME;
+LANDING_TITLE = "کلماتیک | بازی حدس کلمات";
+LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
+LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
+LANDING_DESCRIPTION = `تجربه‌ای متفاوت از بازی حدس کلمات روی آیفون و اندروید؛ با رقابت واقعی در لیدربورد، هزاران مرحله‌ی متنوع، چالش روزانه‌ی زمان‌دار و پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`;
+SUPPORT_PHONE = "+982632238307";
+SUPPORT_PHONE_HREF = `tel:${SUPPORT_PHONE}`;
+SUPPORT_EMAIL = "info@ordibeheshtstudio.com";
+SUPPORT_EMAIL_HREF = `mailto:${SUPPORT_EMAIL}`;
+SITE_CONFIG = typeof CHAT_SITE_CONFIG === 'object' && CHAT_SITE_CONFIG ? CHAT_SITE_CONFIG : {};
+CHAT_CONFIG = SITE_CONFIG.chat || {};
+LANDING_CHAT_PAGE_CONFIG = CHAT_CONFIG.pages && CHAT_CONFIG.pages.landing ? CHAT_CONFIG.pages.landing : {};
+LANDING_CHAT_ENABLED = Boolean(
+    CHAT_CONFIG.enabled &&
+    CHAT_CONFIG.provider === 'raychat' &&
+    LANDING_CHAT_PAGE_CONFIG.raychatId
+);
+
+// Meta
+LANDING_META = {
+    description: LANDING_DESCRIPTION,
+    keywords: "کلماتیک, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی کلمات فارسی انگلیسی عربی ترکی, بازی روزانه کلمات, بازی موبایل کلمات",
+    siteUrl: "https://www.kalamatic.com/",
+    imagePath: "/assets/img/app-icon.png",
+    robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    locale: "fa_IR",
+    themeColor: "#000000"
+};
+
+// Visible landing content
+LANDING_CONTENT = {
+    heroTitle: LANDING_APP_NAME,
+    bodyIntro: `تجربه‌ی متفاوت بازی حدس کلمات روی آیفون و اندروید، با پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`,
+    bodyFeatures: [
+        "رقابت واقعی در لیدربورد",
+        "هزاران مرحله‌ی متنوع",
+        "چالش روزانه‌ی زمان‌دار",
+        `چهار زبانه: ${LANDING_LANGUAGE_LABEL}`
+    ],
+    bodyOutro: "رایگانه؛ همین الان دانلود کن."
+};
+
+// Header
+LANDING_HEADER = {
+    mobileTitle: LANDING_APP_NAME,
+    title: LANDING_TITLE,
+    actions: [
+        {
+            href: "https://www.instagram.com/ordibeheshtstudio/",
+            imageSrc: "assets/img/header-icons/instagram.png",
+            label: "اینستاگرام",
+            rel: "nofollow",
+            target: "_blank"
+        },
+        {
+            href: "#support-faq",
+            imageSrc: "assets/img/header-icons/question.png",
+            label: "سوالات متداول"
+        },
+        LANDING_CHAT_ENABLED ? {
+            href: SUPPORT_PHONE_HREF,
+            imageSrc: "assets/img/header-icons/chat.png",
+            label: "چت",
+            chatTrigger: true,
+            chatDirect: true
+        } : null,
+        {
+            href: SUPPORT_PHONE_HREF,
+            imageSrc: "assets/img/header-icons/contact.png",
+            label: "تماس"
+        },
+        {
+            href: SUPPORT_EMAIL_HREF,
+            imageSrc: "assets/img/header-icons/email.png",
+            label: "ایمیل"
+        }
+    ].filter(Boolean)
+};
+
+// Support feature
+LANDING_SUPPORT = {
+    enabled: true,
+    sectionId: "support",
+    faqTitle: "سوالات متداول",
+    faqPreviewCount: 3,
+    faqExpandLabel: "سوالات بیشتر",
+    faqCollapseLabel: "بستن سوالات",
+    faqs: [
+        {
+            question: "کد دعوت چیه؟",
+            answer: "کد دعوت، شناسه‌ی حساب بازی توئه و برای نگهداری اطلاعاتت مثل مرحله و سکه‌ها استفاده میشه. از بخش تنظیمات می‌تونی کدت رو ببینی و کپی کنی."
+        },
+        {
+            question: "گوشیمو عوض یا ریست کردم؛ اطلاعاتم برمی‌گرده؟",
+            answer: "بله. اگر کد دعوت، ایمیل یا نام کاربری قبلیت رو برای پشتیبانی بفرستی، می‌تونیم اطلاعات بازی‌ات رو بازیابی کنیم."
+        },
+        {
+            question: "آیا با به‌روزرسانی، مرحله‌ها و سکه‌هام پاک میشه؟",
+            answer: "معمولاً نه. ولی بهتره قبل از به‌روزرسانی بازی، کد دعوتت رو ذخیره کنی تا اگر مشکلی پیش اومد، اطلاعاتت قابل بازیابی باشه."
+        },
+        {
+            question: "آیا برای به‌روزرسانی کردن باید بازی رو پاک کنم؟",
+            answer: "نه، نیازی به پاک کردن بازی نیست. فقط بازی رو از App Store، کافه‌بازار یا مایکت به آخرین نسخه به‌روزرسانی کن."
+        },
+        {
+            question: "چرا بعد از دعوت از دوستام جایزه نگرفتم؟",
+            answer: "دوستت باید بازی رو نصب کنه، موقع شروع بازی کد دعوت تو رو وارد کنه و اینترنت هر دو نفر هم وصل باشه. بعد از انجام این مراحل، جایزه فعال میشه."
+        },
+        {
+            question: "پیام جایزه گرفتم ولی جایزه فعال نشد!",
+            answer: "برای گرفتن جایزه باید روی همون پیام کلیک کنی و از همون مسیر وارد بازی بشی."
+        },
+        {
+            question: "چالش روزانه چطور کار می‌کنه؟",
+            answer: "شما یک چالش ۷ روزه دارید و باید هر روز، چالش همون روز رو کامل کنید. با کامل کردن هر روز، جایزه همون روز رو می‌گیرید، امتیاز میگیرید و وارد لیدربورد روزانه میشید. اگر ۷ روز پشت سر هم چالش‌ها رو کامل کنید، یک جایزه ویژه هم دریافت می‌کنید."
+        },
+        {
+            question: "چرا بازی روزانه یا گردونه شانس برای من نمیاد؟",
+            answer: "بازی رو به‌روزرسانی کن و مطمئن شو اینترنتت وصله، بعد دوباره وارد بازی شو."
+        },
+        {
+            question: "چرا لیدربورد یا فروشگاه باز نمیشه؟",
+            answer: "این بخش‌ها برای اجرا به اینترنت نیاز دارن. اگر باز نشدن، اینترنت یا فیلترشکن رو بررسی کن و دوباره امتحان کن."
+        },
+        {
+            question: "مراحل جدید بازی کی اضافه میشه؟",
+            answer: "مرحله‌های جدید به مرور به بازی اضافه میشن. برای دریافت مرحله‌های جدید، بازی رو به آخرین نسخه به‌روزرسانی کن."
+        },
+        {
+            question: "امتیاز مرحله چطور حساب میشه؟",
+            answer: "این موارد روی امتیازت تاثیر دارن: تعداد کلمات اضافه‌ای که پیدا می‌کنی، زمان حل مرحله، و استفاده از راهنمایی. هرچی بهتر بازی کنی، امتیاز بیشتری می‌گیری."
+        },
+        {
+            question: "چرا بعضی کلمات قبول نمیشن؟",
+            answer: "ما سعی کردیم رایج‌ترین و پرکاربردترین کلمات فارسی رو در بازی قرار بدیم. ممکنه بعضی کلمات کمتر استفاده‌شده یا خاص هنوز داخل بازی نباشن."
+        },
+        {
+            question: "چرا بعد از خرید، سکه‌هام اضافه نشد؟",
+            answer: "اگر مبلغ از حسابت کم شده ولی سکه نگرفتی، رسید خرید یا اطلاعات خرید رو برای پشتیبانی بفرست تا بررسی کنیم."
+        },
+        {
+            question: "چرا وقتی می‌خوام تبلیغ ببینم، پیام خطا نمایش میده؟",
+            answer: "تبلیغ‌های بازی از سرویس‌های تبلیغاتی نمایش داده میشن و گاهی ممکنه موقتاً تبلیغی در دسترس نباشه یا نمایش محدود بشه. مطمئن شو اینترنتت وصله و بازیت به‌روزرسانی شده، بعد دوباره امتحان کن. اگر مشکل ادامه داشت، با پشتیبانی در ارتباط باش."
+        }
+    ],
+    contactTitle: "ارتباط با پشتیبانی",
+    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باشید تا پیگیری کنیم.",
+    chatAction: LANDING_CHAT_ENABLED ? {
+        href: SUPPORT_PHONE_HREF,
+        label: "چت"
+    } : null,
+    contactLink: {
+        href: SUPPORT_PHONE_HREF,
+        label: "تماس"
+    },
+    emailLink: {
+        href: SUPPORT_EMAIL_HREF,
+        label: "ایمیل"
+    }
+};
+
+// Hero assets
+LANDING_ASSETS = {
+    icon: {
+        src: "assets/img/app-icon.png",
+        alt: "ایکون بازی کلماتیک",
+        width: 256,
+        height: 256,
+        version: LANDING_ASSET_VERSIONS.appIcon
+    },
+    screenshot: {
+        src: "assets/img/app-mockup.png",
+        alt: "اسکرین شات گیم‌پلی",
+        width: 255,
+        height: 512,
+        version: LANDING_ASSET_VERSIONS.appMockup
+    }
+};
+
+// Store buttons
+LANDING_DOWNLOADS = {
+    buttons: [
+        {
+            href: "https://redirect.appmetrica.yandex.com/serve/243823473116400451",
+            imageSrc: "assets/img/store-badges/app-store-badge.png",
+            imageVersion: LANDING_ASSET_VERSIONS.appStoreBadge,
+            alt: "دانلود کلماتیک از اپ استور",
+            width: 680,
+            height: 256
+        },
+        {
+            href: "https://redirect.appmetrica.yandex.com/serve/963685243733231438?v=4.5.1",
+            imageSrc: "assets/img/store-badges/cafe-bazaar-badge.png",
+            imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
+            alt: "دانلود کلماتیک از کافه بازار",
+            width: 256,
+            height: 85
+        },
+        {
+            href: "https://redirect.appmetrica.yandex.com/serve/1181118785915021816?v=4.5.1",
+            imageSrc: "assets/img/store-badges/myket-badge.png",
+            imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
+            alt: "دانلود کلماتیک از مایکت",
+            width: 256,
+            height: 85
+        }
+    ]
+};
+
+// Footer
+LANDING_FOOTER = {
+    en: "Joyixir OÜ 2026",
+    fa: "اردیبهشت استودیو ۱۴۰۵"
+};
+
+// Search metadata
+LANDING_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": LANDING_APP_NAME,
+    "url": LANDING_META.siteUrl,
+    "image": `${LANDING_META.siteUrl}${LANDING_META.imagePath}`,
+    "description": LANDING_DESCRIPTION,
+    "inLanguage": LANDING_LANGUAGES,
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Android, iOS",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Joyixir OÜ"
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "description": "رایگان برای دانلود با خرید درون‌برنامه‌ای"
+    }
+};
+%>
