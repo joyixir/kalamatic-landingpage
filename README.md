@@ -27,7 +27,7 @@ The site is built from EJS templates, SCSS, plain JavaScript, and copied static 
 - `src/statics/ads-and-verification/`
   - source-only optional ad and verification root files, copied to the build only when enabled
 - `dist/`
-  - generated output for preview and deployment
+  - generated output for preview and the GitHub Pages build artifact
 
 ## Optional Features
 
@@ -61,7 +61,18 @@ Then open [http://127.0.0.1:12345](http://127.0.0.1:12345).
 - `npm run build`: create a fresh production build in `dist/`
 - `npm run clean`: remove the generated `dist/` folder
 - `npm run verify:dist`: confirm the build still contains the files production depends on
-- `npm run deploy`: rebuild, verify, and publish the `dist/` folder to GitHub Pages
+- `npm run pages:build`: rebuild and verify the exact output GitHub Pages will publish
+- `npm run deploy`: compatibility alias for `npm run pages:build`
+
+## Deployment
+
+GitHub Pages now deploys automatically through GitHub Actions.
+
+- Push to `master`
+- GitHub Actions runs `npm ci`, `npm run build`, and `npm run verify:dist`
+- If those pass, the workflow publishes the `dist/` artifact to GitHub Pages
+
+There is no need to run a local publish command anymore.
 
 ## Editing Guide
 
@@ -84,6 +95,6 @@ Then open [http://127.0.0.1:12345](http://127.0.0.1:12345).
 ## Notes
 
 - `master` is the editable source branch.
-- `gh-pages` is the deployment artifact branch.
+- GitHub Actions is now the deployment path for GitHub Pages.
 - `dist/` is disposable build output. Edit source files instead.
 - The repo no longer includes a separate support mini-site. Support lives inside the main landing page only.

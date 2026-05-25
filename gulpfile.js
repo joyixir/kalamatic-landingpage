@@ -8,7 +8,6 @@ const log = require('fancy-log');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
 const ejs = require('gulp-ejs');
-const ghPages = require('gulp-gh-pages');
 const rename = require('gulp-rename');
 const adsAndVerificationConfig = require('./src/statics/ads-and-verification-config');
 const chatSiteConfig = require('./src/statics/chat-config');
@@ -122,16 +121,10 @@ function watchFiles() {
     return watch(paths.statics, series(statics, reload));
 }
 
-function deploy() {
-    return src('./dist/**/*', { dot: true })
-        .pipe(ghPages());
-}
-
 const build = series(clean, parallel(styles, scripts, html, fonts, images, statics, adsAndVerificationRootFiles));
 const dev = series(build, serve, watchFiles);
 
 exports.clean = clean;
 exports.build = build;
 exports.dev = dev;
-exports.deploy = series(build, deploy);
 exports.default = build;
