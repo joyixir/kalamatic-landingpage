@@ -2,7 +2,7 @@
     <nav class="site-nav">
         <div class="container site-nav-inner">
             <ul class="header-socials">
-                <% LANDING_HEADER.actions.forEach(function (action) { %>
+                <% HEADER_SECTION.actions.forEach(function (action) { %>
                     <li>
                         <a href="<%- action.href %>"
                            class="header-social-link" aria-label="<%- action.label %>"<% if (action.target) { %> target="<%- action.target %>"<% } %><% if (action.rel) { %> rel="<%- action.rel %>"<% } %><% if (action.chatTrigger) { %> data-chat-trigger<% } %><% if (action.chatDirect) { %> data-chat-direct<% } %><% if (action.chatDirect && !LANDING_CHAT_ENABLED) { %> hidden<% } %>>
@@ -11,10 +11,7 @@
                     </li>
                 <% }) %>
             </ul>
-            <a class="header-brand-link" href="/">
-                <span class="header-brand-title header-brand-title--compact"><%- LANDING_HEADER.mobileTitle %></span>
-                <span class="header-brand-title header-brand-title--full"><%- LANDING_HEADER.title %></span>
-            </a>
+            <span class="header-brand-text"><%- HEADER_SECTION.title %></span>
         </div>
     </nav>
 </header>

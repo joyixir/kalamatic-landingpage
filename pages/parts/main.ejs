@@ -1,26 +1,44 @@
 <main class="landing-main">
     <div class="container">
         <section class="hero-layout" itemscope itemtype="https://schema.org/MobileApplication">
-            <div class="hero-copy">
-                <div class="hero-brand">
-                    <img src="<%- LANDING_ASSETS.icon.src %>?v=<%- LANDING_ASSETS.icon.version %>" alt="<%- LANDING_ASSETS.icon.alt %>"
-                         class="icon" width="<%- LANDING_ASSETS.icon.width %>" height="<%- LANDING_ASSETS.icon.height %>" decoding="async" fetchpriority="high">
-                    <div class="heading">
-                        <h1 class="title"><%- LANDING_CONTENT.heroTitle %></h1>
+            <article class="hero-intro-card">
+                <div class="hero-intro-brand">
+                    <img src="<%- HERO_SECTION.icon.src %>?v=<%- HERO_SECTION.icon.version %>" alt="<%- HERO_SECTION.icon.alt %>"
+                         class="hero-intro-icon" width="<%- HERO_SECTION.icon.width %>" height="<%- HERO_SECTION.icon.height %>" decoding="async" fetchpriority="high">
+                    <h1 class="hero-intro-title"><%- HERO_SECTION.title %></h1>
+                </div>
+            </article>
+
+            <section class="description-section" id="<%- DESCRIPTION_SECTION.sectionId %>">
+                <div class="description-section-inner">
+                    <div class="hero-content">
+                        <div class="hero-copy">
+                            <p class="body">
+                                <%- DESCRIPTION_SECTION.intro %>
+                                <% DESCRIPTION_SECTION.features.forEach(function (feature) { %>
+                                    <br>🔹 <%- feature %>
+                                <% }) %>
+                                <br><br><%- DESCRIPTION_SECTION.outro %>
+                            </p>
+                        </div>
+
+                        <div class="hero-visual">
+                            <div class="screenshot">
+                                <img src="<%- DESCRIPTION_SECTION.mockup.src %>?v=<%- DESCRIPTION_SECTION.mockup.version %>"
+                                     alt="<%- DESCRIPTION_SECTION.mockup.alt %>" width="<%- DESCRIPTION_SECTION.mockup.width %>" height="<%- DESCRIPTION_SECTION.mockup.height %>"
+                                     loading="lazy" decoding="async" fetchpriority="low">
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+        </section>
 
-                <p class="body">
-                    <%- LANDING_CONTENT.bodyIntro %>
-                    <% LANDING_CONTENT.bodyFeatures.forEach(function (feature) { %>
-                        <br>🔹 <%- feature %>
-                    <% }) %>
-                    <br><br><%- LANDING_CONTENT.bodyOutro %>
-                </p>
-
-                <!-- Primary download buttons live here; their shared badge assets are in src/img/store-badges/. -->
-                <div class="download-btns">
-                    <% LANDING_DOWNLOADS.buttons.forEach(function (button) { %>
+        <section class="download-section" id="<%- DOWNLOAD_SECTION.sectionId %>">
+            <div class="download-section-inner">
+                <h2 class="download-section-title"><%- DOWNLOAD_SECTION.title %></h2>
+                <div class="download-btns download-btns--card">
+                    <% DOWNLOAD_SECTION.buttons.forEach(function (button) { %>
                         <a href="<%- button.href %>"
                            onclick="gtag_report_conversion('<%- button.href %>')">
                             <img src="<%- button.imageSrc %>?v=<%- button.imageVersion %>"
@@ -30,16 +48,9 @@
                     <% }) %>
                 </div>
             </div>
-
-            <div class="hero-visual">
-                <div class="screenshot">
-                    <img src="<%- LANDING_ASSETS.screenshot.src %>?v=<%- LANDING_ASSETS.screenshot.version %>"
-                         alt="<%- LANDING_ASSETS.screenshot.alt %>" width="<%- LANDING_ASSETS.screenshot.width %>" height="<%- LANDING_ASSETS.screenshot.height %>"
-                         loading="lazy" decoding="async" fetchpriority="low">
-                </div>
-            </div>
         </section>
 
+        <%- include('screenshots') %>
         <%- include('support') %>
     </div>
 </main>

@@ -4,6 +4,7 @@
 // - src/img/app-icon.png
 // - src/img/app-mockup.png
 // - src/img/header-icons/
+// - src/img/screenshots/
 // - src/img/store-badges/
 // Browser and home-screen icons keep their standard filenames in src/statics/.
 // If you also change the browser/app icon, replace:
@@ -17,12 +18,13 @@
 // - src/statics/android-chrome-512x512.png
 // - src/statics/safari-pinned-tab.svg
 
-VERSION = "3.0.2";
+VERSION = "3.0.9";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
     appMockup: "4.0.0",
-    appStoreBadge: "2.5.1",
-    storeBadges: "4.5.1"
+    gameScreenshots: "6.5.0",
+    appStoreBadge: "5.0.0",
+    storeBadges: "5.0.0"
 };
 
 // Core text
@@ -32,10 +34,12 @@ LANDING_TITLE = "کلماتیک | بازی حدس کلمات";
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
 LANDING_DESCRIPTION = `تجربه‌ای متفاوت از بازی حدس کلمات روی آیفون و اندروید؛ با رقابت واقعی در لیدربورد، هزاران مرحله‌ی متنوع، چالش روزانه‌ی زمان‌دار و پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`;
-SUPPORT_PHONE = "+982632238307";
-SUPPORT_PHONE_HREF = `tel:${SUPPORT_PHONE}`;
-SUPPORT_EMAIL = "info@ordibeheshtstudio.com";
-SUPPORT_EMAIL_HREF = `mailto:${SUPPORT_EMAIL}`;
+CONTACT_INFO = {
+    phone: "+982632238307",
+    phoneHref: "tel:+982632238307",
+    email: "info@ordibeheshtstudio.com",
+    emailHref: "mailto:info@ordibeheshtstudio.com"
+};
 SITE_CONFIG = typeof CHAT_SITE_CONFIG === 'object' && CHAT_SITE_CONFIG ? CHAT_SITE_CONFIG : {};
 CHAT_CONFIG = SITE_CONFIG.chat || {};
 LANDING_CHAT_PAGE_CONFIG = CHAT_CONFIG.pages && CHAT_CONFIG.pages.landing ? CHAT_CONFIG.pages.landing : {};
@@ -56,60 +60,96 @@ LANDING_META = {
     themeColor: "#000000"
 };
 
-// Visible landing content
-LANDING_CONTENT = {
-    heroTitle: LANDING_APP_NAME,
-    bodyIntro: `تجربه‌ی متفاوت بازی حدس کلمات روی آیفون و اندروید، با پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`,
-    bodyFeatures: [
-        "رقابت واقعی در لیدربورد",
-        "هزاران مرحله‌ی متنوع",
-        "چالش روزانه‌ی زمان‌دار",
-        `چهار زبانه: ${LANDING_LANGUAGE_LABEL}`
-    ],
-    bodyOutro: "رایگانه؛ همین الان دانلود کن."
-};
-
-// Header
-LANDING_HEADER = {
-    mobileTitle: LANDING_APP_NAME,
-    title: LANDING_TITLE,
+// Header section
+HEADER_SECTION = {
+    title: LANDING_APP_NAME,
     actions: [
-        {
-            href: "https://www.instagram.com/ordibeheshtstudio/",
-            imageSrc: "assets/img/header-icons/instagram.png",
-            label: "اینستاگرام",
-            rel: "nofollow",
-            target: "_blank"
-        },
-        {
-            href: "#support-faq",
-            imageSrc: "assets/img/header-icons/question.png",
-            label: "سوالات متداول"
-        },
         LANDING_CHAT_ENABLED ? {
-            href: SUPPORT_PHONE_HREF,
+            href: CONTACT_INFO.phoneHref,
             imageSrc: "assets/img/header-icons/chat.png",
             label: "چت",
             chatTrigger: true,
             chatDirect: true
         } : null,
         {
-            href: SUPPORT_PHONE_HREF,
+            href: CONTACT_INFO.phoneHref,
             imageSrc: "assets/img/header-icons/contact.png",
             label: "تماس"
         },
         {
-            href: SUPPORT_EMAIL_HREF,
+            href: CONTACT_INFO.emailHref,
             imageSrc: "assets/img/header-icons/email.png",
             label: "ایمیل"
+        },
+        {
+            href: "#support-faq",
+            imageSrc: "assets/img/header-icons/question.png",
+            label: "سوالات متداول"
+        },
+        {
+            href: "https://www.instagram.com/ordibeheshtstudio/",
+            imageSrc: "assets/img/header-icons/instagram.png",
+            label: "اینستاگرام",
+            rel: "nofollow",
+            target: "_blank"
         }
     ].filter(Boolean)
 };
 
-// Support feature
-LANDING_SUPPORT = {
+// Hero section
+HERO_SECTION = {
+    title: LANDING_TITLE,
+    icon: {
+        src: "assets/img/app-icon.png",
+        alt: "ایکون بازی کلماتیک",
+        width: 256,
+        height: 256,
+        version: LANDING_ASSET_VERSIONS.appIcon
+    }
+};
+
+// Description section
+DESCRIPTION_SECTION = {
+    sectionId: "description",
+    intro: `تجربه‌ی متفاوت بازی حدس کلمات روی آیفون و اندروید، با پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`,
+    features: [
+        "رقابت واقعی در لیدربورد",
+        "هزاران مرحله‌ی متنوع",
+        "چالش روزانه‌ی زمان‌دار",
+        `چهار زبانه: ${LANDING_LANGUAGE_LABEL}`
+    ],
+    outro: "همین الان دانلود کن.",
+    mockup: {
+        src: "assets/img/app-mockup.png",
+        alt: "اسکرین شات گیم‌پلی",
+        width: 255,
+        height: 512,
+        version: LANDING_ASSET_VERSIONS.appMockup
+    }
+};
+
+// Support section wrapper
+SUPPORT_SECTION = {
     enabled: true,
     sectionId: "support",
+    contactTitle: "ارتباط با پشتیبانی",
+    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باشید تا پیگیری کنیم.",
+    chatAction: LANDING_CHAT_ENABLED ? {
+        href: CONTACT_INFO.phoneHref,
+        label: "چت"
+    } : null,
+    contactLink: {
+        href: CONTACT_INFO.phoneHref,
+        label: "تماس"
+    },
+    emailLink: {
+        href: CONTACT_INFO.emailHref,
+        label: "ایمیل"
+    }
+};
+
+// FAQ section
+FAQ_SECTION = {
     faqTitle: "سوالات متداول",
     faqPreviewCount: 3,
     faqExpandLabel: "سوالات بیشتر",
@@ -171,50 +211,20 @@ LANDING_SUPPORT = {
             question: "چرا وقتی می‌خوام تبلیغ ببینم، پیام خطا نمایش میده؟",
             answer: "تبلیغ‌های بازی از سرویس‌های تبلیغاتی نمایش داده میشن و گاهی ممکنه موقتاً تبلیغی در دسترس نباشه یا نمایش محدود بشه. مطمئن شو اینترنتت وصله و بازیت به‌روزرسانی شده، بعد دوباره امتحان کن. اگر مشکل ادامه داشت، با پشتیبانی در ارتباط باش."
         }
-    ],
-    contactTitle: "ارتباط با پشتیبانی",
-    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باشید تا پیگیری کنیم.",
-    chatAction: LANDING_CHAT_ENABLED ? {
-        href: SUPPORT_PHONE_HREF,
-        label: "چت"
-    } : null,
-    contactLink: {
-        href: SUPPORT_PHONE_HREF,
-        label: "تماس"
-    },
-    emailLink: {
-        href: SUPPORT_EMAIL_HREF,
-        label: "ایمیل"
-    }
+    ]
 };
 
-// Hero assets
-LANDING_ASSETS = {
-    icon: {
-        src: "assets/img/app-icon.png",
-        alt: "ایکون بازی کلماتیک",
-        width: 256,
-        height: 256,
-        version: LANDING_ASSET_VERSIONS.appIcon
-    },
-    screenshot: {
-        src: "assets/img/app-mockup.png",
-        alt: "اسکرین شات گیم‌پلی",
-        width: 255,
-        height: 512,
-        version: LANDING_ASSET_VERSIONS.appMockup
-    }
-};
-
-// Store buttons
-LANDING_DOWNLOADS = {
+// Download section
+DOWNLOAD_SECTION = {
+    sectionId: "download",
+    title: "دانلود رایگان برای آیفون و اندروید",
     buttons: [
         {
             href: "https://redirect.appmetrica.yandex.com/serve/243823473116400451",
             imageSrc: "assets/img/store-badges/app-store-badge.png",
             imageVersion: LANDING_ASSET_VERSIONS.appStoreBadge,
             alt: "دانلود کلماتیک از اپ استور",
-            width: 680,
+            width: 720,
             height: 256
         },
         {
@@ -222,16 +232,55 @@ LANDING_DOWNLOADS = {
             imageSrc: "assets/img/store-badges/cafe-bazaar-badge.png",
             imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
             alt: "دانلود کلماتیک از کافه بازار",
-            width: 256,
-            height: 85
+            width: 720,
+            height: 256
         },
         {
             href: "https://redirect.appmetrica.yandex.com/serve/1181118785915021816?v=4.5.1",
             imageSrc: "assets/img/store-badges/myket-badge.png",
             imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
             alt: "دانلود کلماتیک از مایکت",
-            width: 256,
-            height: 85
+            width: 720,
+            height: 256
+        }
+    ]
+};
+
+// Screenshots section
+SCREENSHOTS_SECTION = {
+    sectionId: "screenshots",
+    title: "تصاویر بازی",
+    closeLabel: "بستن",
+    previousLabel: "تصویر قبلی",
+    nextLabel: "تصویر بعدی",
+    items: [
+        {
+            src: "assets/img/screenshots/daily-challenge-fa.png",
+            alt: "اسکرین‌شات بخش چالش‌های روزانه در بازی کلماتیک",
+            width: 1284,
+            height: 2778,
+            version: LANDING_ASSET_VERSIONS.gameScreenshots
+        },
+        {
+            src: "assets/img/screenshots/lucky-wheel-fa.png",
+            alt: "اسکرین‌شات گردونه شانس و جوایز در بازی کلماتیک",
+            width: 1284,
+            height: 2778,
+            version: LANDING_ASSET_VERSIONS.gameScreenshots
+        },
+        {
+            src: "assets/img/screenshots/leaderboard-fa.png",
+            alt: "اسکرین‌شات لیدربورد و رقابت با بازیکنان در بازی کلماتیک",
+            width: 1284,
+            height: 2778,
+            version: LANDING_ASSET_VERSIONS.gameScreenshots
+        },
+        {
+            src: "assets/img/screenshots/chapters-fa.png",
+            alt: "اسکرین‌شات فصل‌ها و داستان‌های بازی کلماتیک",
+            width: 1284,
+            height: 2778,
+            version: LANDING_ASSET_VERSIONS.gameScreenshots
         }
     ]
 };

@@ -16,8 +16,10 @@ The site is built from EJS templates, SCSS, plain JavaScript, and copied static 
   - all active landing styles
 - `src/js/chat-widget.js`
   - optional RayChat behavior
+- `src/js/screenshot-gallery.js`
+  - screenshot lightbox behavior
 - `src/img/`
-  - landing artwork, header icons, and store badges
+  - landing artwork, screenshots, header icons, and store badges
 - `src/fonts/`
   - embedded Vazirmatn webfonts
 - `src/statics/`
@@ -63,10 +65,20 @@ Then open [http://127.0.0.1:12345](http://127.0.0.1:12345).
 
 ## Editing Guide
 
-- Update page metadata, text, support copy, and action links in `pages/landing-data.ejs`
+- Update page metadata in `pages/landing-data.ejs`
+- Edit landing sections in `pages/landing-data.ejs` by section object:
+  - `HEADER_SECTION`
+  - `HERO_SECTION`
+  - `DESCRIPTION_SECTION`
+  - `DOWNLOAD_SECTION`
+  - `SCREENSHOTS_SECTION`
+  - `FAQ_SECTION`
+  - `SUPPORT_SECTION`
+  - `LANDING_FOOTER`
 - Update layout partials in `pages/parts/`
 - Update all active styling in `src/scss/style.scss`
 - Update RayChat behavior in `src/js/chat-widget.js`
+- Update screenshot lightbox behavior in `src/js/screenshot-gallery.js`
 - Replace artwork and icons in `src/img/`
 
 ## Notes
