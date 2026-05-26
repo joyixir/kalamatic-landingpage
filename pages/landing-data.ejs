@@ -18,22 +18,40 @@
 // - src/statics/android-chrome-512x512.png
 // - src/statics/safari-pinned-tab.svg
 
-VERSION = "3.0.9";
+VERSION = "3.1.5";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
     appMockup: "4.0.0",
-    gameScreenshots: "6.5.0",
+    gameScreenshots: "6.6.0",
     appStoreBadge: "5.0.0",
     storeBadges: "5.0.0"
 };
 
 // Core text
 LANDING_APP_NAME = "کلماتیک";
+LANDING_HERO_TITLE = "کلماتیک | بازی حدس کلمه برای آیفون و اندروید";
 LANDING_BROWSER_TITLE = LANDING_APP_NAME;
-LANDING_TITLE = "کلماتیک | بازی حدس کلمات";
+LANDING_TITLE = LANDING_HERO_TITLE;
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
-LANDING_DESCRIPTION = `تجربه‌ای متفاوت از بازی حدس کلمات روی آیفون و اندروید؛ با رقابت واقعی در لیدربورد، هزاران مرحله‌ی متنوع، چالش روزانه‌ی زمان‌دار و پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`;
+DESCRIPTION_COPY = {
+    intro: "کلماتیک بازی حدس کلمه‌ای که با رقابت واقعی، چالش روزانه و چندین زبان مختلف، هر روز دلیل جدیدی برای برگشتن داره.",
+    features: [
+        "رقابت واقعی در لیدربورد",
+        "هزاران مرحله‌ی متنوع",
+        "چالش روزانه‌ی زمان‌دار",
+        "چند زبانه، فارسی، انگلیسی و ..."
+    ],
+    outro: "دانلود کن و امروز اولین چالشت رو شروع کن."
+};
+LANDING_DESCRIPTION = `${DESCRIPTION_COPY.intro} ${DESCRIPTION_COPY.features.join(" 🔹 ")} 🔹 ${DESCRIPTION_COPY.outro}`;
+LANDING_SHARE_IMAGE = {
+    path: "/assets/img/app-icon.png",
+    alt: "ایکون بازی کلماتیک",
+    width: 256,
+    height: 256,
+    type: "image/png"
+};
 CONTACT_INFO = {
     phone: "+982632238307",
     phoneHref: "tel:+982632238307",
@@ -52,9 +70,9 @@ LANDING_CHAT_ENABLED = Boolean(
 // Meta
 LANDING_META = {
     description: LANDING_DESCRIPTION,
-    keywords: "کلماتیک, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی کلمات فارسی انگلیسی عربی ترکی, بازی روزانه کلمات, بازی موبایل کلمات",
+    keywords: "کلماتیک, بازی حدس کلمه, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی مشابه آمیرزا, بازی مشابه فندق, چالش روزانه کلمات, جدول رده‌بندی بازی, بازی فارسی انگلیسی عربی ترکی",
     siteUrl: "https://www.kalamatic.com/",
-    imagePath: "/assets/img/app-icon.png",
+    imagePath: LANDING_SHARE_IMAGE.path,
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     locale: "fa_IR",
     themeColor: "#000000"
@@ -98,12 +116,12 @@ HEADER_SECTION = {
 
 // Hero section
 HERO_SECTION = {
-    title: LANDING_TITLE,
+    title: LANDING_HERO_TITLE,
     icon: {
         src: "assets/img/app-icon.png",
-        alt: "ایکون بازی کلماتیک",
-        width: 256,
-        height: 256,
+        alt: LANDING_SHARE_IMAGE.alt,
+        width: LANDING_SHARE_IMAGE.width,
+        height: LANDING_SHARE_IMAGE.height,
         version: LANDING_ASSET_VERSIONS.appIcon
     }
 };
@@ -111,14 +129,10 @@ HERO_SECTION = {
 // Description section
 DESCRIPTION_SECTION = {
     sectionId: "description",
-    intro: `تجربه‌ی متفاوت بازی حدس کلمات روی آیفون و اندروید، با پشتیبانی از ${LANDING_LANGUAGE_LABEL}.`,
-    features: [
-        "رقابت واقعی در لیدربورد",
-        "هزاران مرحله‌ی متنوع",
-        "چالش روزانه‌ی زمان‌دار",
-        `چهار زبانه: ${LANDING_LANGUAGE_LABEL}`
-    ],
-    outro: "همین الان دانلود کن.",
+    teaserLabel: "نسخه جدید به‌زودی",
+    intro: DESCRIPTION_COPY.intro,
+    features: DESCRIPTION_COPY.features,
+    outro: DESCRIPTION_COPY.outro,
     mockup: {
         src: "assets/img/app-mockup.png",
         alt: "اسکرین شات گیم‌پلی",
@@ -133,7 +147,7 @@ SUPPORT_SECTION = {
     enabled: true,
     sectionId: "support",
     contactTitle: "ارتباط با پشتیبانی",
-    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باشید تا پیگیری کنیم.",
+    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باش تا پیگیری کنیم.",
     chatAction: LANDING_CHAT_ENABLED ? {
         href: CONTACT_INFO.phoneHref,
         label: "چت"
@@ -164,6 +178,10 @@ FAQ_SECTION = {
             answer: "بله. اگر کد دعوت، ایمیل یا نام کاربری قبلیت رو برای پشتیبانی بفرستی، می‌تونیم اطلاعات بازی‌ات رو بازیابی کنیم."
         },
         {
+            question: "کلماتیک شبیه آمیرزا و فندق است؟",
+            answer: "کلماتیک برای طرفدارهای بازی‌هایی مثل آمیرزا و فندق یه تجربه مدرن‌تره؛ با حدس کلمه چندزبانه، رقابت واقعی و چالش روزانه متفاوت."
+        },
+        {
             question: "آیا با به‌روزرسانی، مرحله‌ها و سکه‌هام پاک میشه؟",
             answer: "معمولاً نه. ولی بهتره قبل از به‌روزرسانی بازی، کد دعوتت رو ذخیره کنی تا اگر مشکلی پیش اومد، اطلاعاتت قابل بازیابی باشه."
         },
@@ -184,7 +202,7 @@ FAQ_SECTION = {
             answer: "شما یک چالش ۷ روزه دارید و باید هر روز، چالش همون روز رو کامل کنید. با کامل کردن هر روز، جایزه همون روز رو می‌گیرید، امتیاز میگیرید و وارد لیدربورد روزانه میشید. اگر ۷ روز پشت سر هم چالش‌ها رو کامل کنید، یک جایزه ویژه هم دریافت می‌کنید."
         },
         {
-            question: "چرا بازی روزانه یا گردونه شانس برای من نمیاد؟",
+            question: "چرا چالش روزانه یا گردونه شانس برای من نمیاد؟",
             answer: "بازی رو به‌روزرسانی کن و مطمئن شو اینترنتت وصله، بعد دوباره وارد بازی شو."
         },
         {
@@ -255,8 +273,8 @@ SCREENSHOTS_SECTION = {
     nextLabel: "تصویر بعدی",
     items: [
         {
-            src: "assets/img/screenshots/daily-challenge-fa.png",
-            alt: "اسکرین‌شات بخش چالش‌های روزانه در بازی کلماتیک",
+            src: "assets/img/screenshots/leaderboard-fa.png",
+            alt: "اسکرین‌شات لیدربورد و رقابت با بازیکنان در بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
@@ -269,15 +287,15 @@ SCREENSHOTS_SECTION = {
             version: LANDING_ASSET_VERSIONS.gameScreenshots
         },
         {
-            src: "assets/img/screenshots/leaderboard-fa.png",
-            alt: "اسکرین‌شات لیدربورد و رقابت با بازیکنان در بازی کلماتیک",
+            src: "assets/img/screenshots/chapters-fa.png",
+            alt: "اسکرین‌شات فصل‌ها و داستان‌های بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
         },
         {
-            src: "assets/img/screenshots/chapters-fa.png",
-            alt: "اسکرین‌شات فصل‌ها و داستان‌های بازی کلماتیک",
+            src: "assets/img/screenshots/multi-languages-fa.png",
+            alt: "اسکرین‌شات بخش چندزبانه بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
@@ -292,24 +310,73 @@ LANDING_FOOTER = {
 };
 
 // Search metadata
-LANDING_SCHEMA = {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": LANDING_APP_NAME,
-    "url": LANDING_META.siteUrl,
-    "image": `${LANDING_META.siteUrl}${LANDING_META.imagePath}`,
-    "description": LANDING_DESCRIPTION,
-    "inLanguage": LANDING_LANGUAGES,
-    "applicationCategory": "GameApplication",
-    "operatingSystem": "Android, iOS",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Joyixir OÜ"
+LANDING_SCHEMA = [
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${LANDING_META.siteUrl}#website`,
+        "name": LANDING_APP_NAME,
+        "alternateName": ["Kalamatic", "kalamatic.com"],
+        "url": LANDING_META.siteUrl,
+        "inLanguage": LANDING_META.locale.replace('_', '-'),
+        "publisher": {
+            "@id": `${LANDING_META.siteUrl}#organization`
+        }
     },
-    "offers": {
-        "@type": "Offer",
-        "price": 0,
-        "description": "رایگان برای دانلود با خرید درون‌برنامه‌ای"
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${LANDING_META.siteUrl}#organization`,
+        "name": "Joyixir OÜ",
+        "alternateName": ["اردیبهشت استودیو", LANDING_APP_NAME],
+        "url": LANDING_META.siteUrl,
+        "logo": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "email": CONTACT_INFO.email,
+        "telephone": CONTACT_INFO.phone,
+        "sameAs": [
+            "https://www.instagram.com/ordibeheshtstudio/"
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "@id": `${LANDING_META.siteUrl}#app`,
+        "name": LANDING_APP_NAME,
+        "alternateName": LANDING_TITLE,
+        "url": LANDING_META.siteUrl,
+        "image": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "description": LANDING_DESCRIPTION,
+        "inLanguage": LANDING_LANGUAGES,
+        "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Word Game",
+        "operatingSystem": "Android, iOS",
+        "isAccessibleForFree": true,
+        "featureList": DESCRIPTION_SECTION.features,
+        "screenshot": SCREENSHOTS_SECTION.items.map((item) => `${LANDING_META.siteUrl}${item.src.replace(/^assets\//, 'assets/')}?v=${item.version}`),
+        "downloadUrl": DOWNLOAD_SECTION.buttons.map((button) => button.href),
+        "publisher": {
+            "@id": `${LANDING_META.siteUrl}#organization`
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "description": "رایگان برای دانلود با خرید درون‌برنامه‌ای"
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${LANDING_META.siteUrl}#faq`,
+        "mainEntity": FAQ_SECTION.faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     }
-};
+];
 %>

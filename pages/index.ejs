@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa-ir">
+<html lang="fa-IR">
 <%- include('landing-data') %>
 <head>
     <meta name="enamad" content="305506"/>
@@ -22,8 +22,12 @@
     <meta property="og:description"
           content="<%- LANDING_META.description %>"/>
     <meta property="og:url" content="<%- LANDING_META.siteUrl %>"/>
-    <meta property="og:image" content="<%- LANDING_META.imagePath %>?v=<%- VERSION %>"/>
-    <meta property="og:image:alt" content="<%- HERO_SECTION.icon.alt %>"/>
+    <meta property="og:image" content="<%- LANDING_META.siteUrl %><%- LANDING_META.imagePath.replace(/^\//, '') %>?v=<%- VERSION %>"/>
+    <meta property="og:image:secure_url" content="<%- LANDING_META.siteUrl %><%- LANDING_META.imagePath.replace(/^\//, '') %>?v=<%- VERSION %>"/>
+    <meta property="og:image:type" content="<%- LANDING_SHARE_IMAGE.type %>"/>
+    <meta property="og:image:width" content="<%- LANDING_SHARE_IMAGE.width %>"/>
+    <meta property="og:image:height" content="<%- LANDING_SHARE_IMAGE.height %>"/>
+    <meta property="og:image:alt" content="<%- LANDING_SHARE_IMAGE.alt %>"/>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=<%- VERSION %>">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=<%- VERSION %>">

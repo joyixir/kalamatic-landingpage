@@ -15,9 +15,9 @@ const requiredFiles = [
     'assets/img/header-icons/instagram.png',
     'assets/img/header-icons/question.png',
     'assets/img/screenshots/chapters-fa.png',
-    'assets/img/screenshots/daily-challenge-fa.png',
     'assets/img/screenshots/leaderboard-fa.png',
     'assets/img/screenshots/lucky-wheel-fa.png',
+    'assets/img/screenshots/multi-languages-fa.png',
     'assets/img/store-badges/app-store-badge.png',
     'assets/img/store-badges/cafe-bazaar-badge.png',
     'assets/img/store-badges/myket-badge.png',
@@ -33,7 +33,10 @@ const requiredFiles = [
     'favicon-96x96.png',
     'favicon.ico',
     'favicon.svg',
+    'llms.txt',
+    'robots.txt',
     'safari-pinned-tab.svg',
+    'sitemap.xml',
     'site.webmanifest'
 ];
 

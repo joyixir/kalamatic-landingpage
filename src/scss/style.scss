@@ -21,6 +21,10 @@ $bp-screenshots-two-col: 430px;
 $bp-screenshots-four-col: 850px;
 $bp-desktop: 901px;
 $bp-tall-screen: 840px;
+$layout-space-mobile: 24px;
+$layout-space-desktop: 32px;
+$section-gap-mobile: $layout-space-mobile;
+$section-gap-desktop: $layout-space-desktop;
 
 // Theme
 $page-bg: #f7f7f7;
@@ -79,6 +83,8 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
     background-color: #000000;
+    min-height: 100%;
+    overscroll-behavior-y: none;
 }
 
 *,
@@ -91,13 +97,15 @@ body {
     margin: 0;
     display: flex;
     min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     flex-direction: column;
     direction: rtl;
     overflow-x: hidden;
     font-family: 'Vazirmatn', sans-serif;
     font-weight: 400;
     color: $text-dark;
-    background-color: $page-bg;
+    background-color: #000000;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -130,8 +138,13 @@ h6 {
     border-bottom: none;
     box-shadow: none !important;
     padding-top: var(--safe-area-top);
-    padding-right: calc(18px + var(--safe-area-right));
-    padding-left: calc(18px + var(--safe-area-left));
+    padding-right: calc(#{$layout-space-mobile} + var(--safe-area-right));
+    padding-left: calc(#{$layout-space-mobile} + var(--safe-area-left));
+
+    @include up($bp-desktop) {
+        padding-right: calc(#{$layout-space-desktop} + var(--safe-area-right));
+        padding-left: calc(#{$layout-space-desktop} + var(--safe-area-left));
+    }
 
     a {
         color: $text-light !important;
@@ -236,12 +249,12 @@ h6 {
 // Landing layout
 .landing-main {
     flex: 1 0 auto;
-    padding: 32px calc(18px + var(--safe-area-right)) 24px calc(18px + var(--safe-area-left));
+    padding: $layout-space-mobile calc(#{$layout-space-mobile} + var(--safe-area-right)) $layout-space-mobile calc(#{$layout-space-mobile} + var(--safe-area-left));
     color: $text-dark;
+    background-color: $page-bg;
 
-    @include up($bp-nav) {
-        padding-top: 38px;
-        padding-bottom: 28px;
+    @include up($bp-desktop) {
+        padding: $layout-space-desktop calc(#{$layout-space-desktop} + var(--safe-area-right)) $layout-space-desktop calc(#{$layout-space-desktop} + var(--safe-area-left));
     }
 
 }
@@ -254,10 +267,10 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 28px;
+    gap: $section-gap-mobile;
 
-    @include centered-hero-screen {
-        min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--safe-area-top) - var(--safe-area-bottom) - 72px);
+    @include up($bp-desktop) {
+        gap: $section-gap-desktop;
     }
 }
 
@@ -267,6 +280,7 @@ h6 {
     border-radius: 28px;
     padding: 18px 18px 20px;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
 
     @include up($bp-nav) {
         padding: 22px 24px 24px;
@@ -346,6 +360,27 @@ h6 {
 
     @include up($bp-desktop) {
         padding: 36px 40px;
+    }
+}
+
+.description-section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 16px 9px;
+    border-radius: 16px 16px 16px 6px;
+    background: #006ECD;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 800;
+    white-space: nowrap;
+    align-self: center;
+    margin-top: 4px;
+
+    @include up($bp-hero-row) {
+        align-self: flex-start;
     }
 }
 
@@ -437,10 +472,10 @@ h6 {
 }
 
 .download-section {
-    margin-top: 28px;
+    margin-top: $section-gap-mobile;
 
     @include up($bp-desktop) {
-        margin-top: 36px;
+        margin-top: $section-gap-desktop;
     }
 }
 
@@ -505,10 +540,10 @@ h6 {
 }
 
 .screenshots-section {
-    margin-top: 32px;
+    margin-top: $section-gap-mobile;
 
     @include up($bp-desktop) {
-        margin-top: 40px;
+        margin-top: $section-gap-desktop;
     }
 }
 
@@ -643,14 +678,25 @@ h6 {
     justify-content: center;
     border: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: #101114;
     color: #ffffff;
     cursor: pointer;
-    transition: background-color 180ms ease, transform 180ms ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+    transition: background-color 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 
     &:hover,
-    &:focus-visible {
-        background: rgba(255, 255, 255, 0.22);
+    &:focus,
+    &:focus-visible,
+    &:active {
+        background: #1a1c21;
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.34);
         transform: translateY(-1px);
     }
 }
@@ -658,10 +704,26 @@ h6 {
 .screenshots-lightbox-close {
     top: 18px;
     right: 18px;
-    width: 44px;
-    height: 44px;
-    font-size: 28px;
-    line-height: 1;
+    width: 46px;
+    height: 46px;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 3px;
+        border-radius: 999px;
+        background: currentColor;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
 }
 
 .screenshots-lightbox-nav {
@@ -751,16 +813,20 @@ h6 {
 
 .support-section {
     scroll-margin-top: calc(var(--header-height) + var(--safe-area-top) + 20px);
-    margin-top: 40px;
+    margin-top: $section-gap-mobile;
 
     @include up($bp-desktop) {
-        margin-top: 56px;
+        margin-top: $section-gap-desktop;
     }
 }
 
 .support-grid {
     display: grid;
-    gap: 18px;
+    gap: $section-gap-mobile;
+
+    @include up($bp-desktop) {
+        gap: $section-gap-desktop;
+    }
 }
 
 .support-card {
@@ -956,14 +1022,19 @@ h6 {
 .site-footer.page-footer {
     margin-top: auto;
     padding-top: 0 !important;
-    padding-bottom: var(--safe-area-bottom);
-    padding-right: calc(18px + var(--safe-area-right));
-    padding-left: calc(18px + var(--safe-area-left));
+    padding-right: calc(#{$layout-space-mobile} + var(--safe-area-right));
+    padding-left: calc(#{$layout-space-mobile} + var(--safe-area-left));
     background-color: #000 !important;
+
+    @include up($bp-desktop) {
+        padding-right: calc(#{$layout-space-desktop} + var(--safe-area-right));
+        padding-left: calc(#{$layout-space-desktop} + var(--safe-area-left));
+    }
 }
 
 .site-footer-bar {
-    min-height: var(--footer-height);
+    min-height: calc(var(--footer-height) + var(--safe-area-bottom));
+    padding-bottom: var(--safe-area-bottom);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1014,17 +1085,13 @@ h6 {
 
     .site-footer-bar {
         min-height: auto;
-        padding: 16px 0;
+        padding: 16px 0 var(--safe-area-bottom);
         line-height: 1.6;
     }
 
     .site-footer-bar .container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .support-section {
-        margin-top: 32px;
+        padding-left: $layout-space-mobile;
+        padding-right: $layout-space-mobile;
     }
 
     .screenshots-section-inner,

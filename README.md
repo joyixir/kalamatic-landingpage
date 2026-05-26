@@ -23,7 +23,7 @@ The site is built from EJS templates, SCSS, plain JavaScript, and copied static 
 - `src/fonts/`
   - embedded Vazirmatn webfonts
 - `src/statics/`
-  - active root files such as favicons, manifest, `CNAME`, `chat-config.js`, and `ads-and-verification-config.js`
+  - active root files such as favicons, manifest, `CNAME`, `chat-config.js`, `robots.txt`, `sitemap.xml`, `llms.txt`, and `ads-and-verification-config.js`
 - `src/statics/ads-and-verification/`
   - source-only optional ad and verification root files, copied to the build only when enabled
 - `dist/`
@@ -68,15 +68,18 @@ Then open [http://127.0.0.1:12345](http://127.0.0.1:12345).
 
 GitHub Pages now deploys automatically through GitHub Actions.
 
-- Push to `master`
+- Commit day-to-day work on `develop`
+- Merge `develop` into `master` when the landing is ready for production
 - GitHub Actions runs `npm ci`, `npm run build`, and `npm run verify:dist`
-- If those pass, the workflow publishes the `dist/` artifact to GitHub Pages
+- Every push to `master` triggers the production deploy workflow
+- If the workflow passes, GitHub publishes the `dist/` artifact to GitHub Pages
 
 There is no need to run a local publish command anymore.
 
 ## Editing Guide
 
 - Update page metadata in `pages/landing-data.ejs`
+- Update crawl/discovery files in `src/statics/robots.txt`, `src/statics/sitemap.xml`, and `src/statics/llms.txt`
 - Edit landing sections in `pages/landing-data.ejs` by section object:
   - `HEADER_SECTION`
   - `HERO_SECTION`
@@ -94,7 +97,8 @@ There is no need to run a local publish command anymore.
 
 ## Notes
 
-- `master` is the editable source branch.
+- `develop` is the working branch for ongoing landing changes.
+- `master` is the production branch.
 - GitHub Actions is now the deployment path for GitHub Pages.
 - `dist/` is disposable build output. Edit source files instead.
 - The repo no longer includes a separate support mini-site. Support lives inside the main landing page only.

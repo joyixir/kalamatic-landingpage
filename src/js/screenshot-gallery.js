@@ -67,14 +67,6 @@
             control.addEventListener('click', close);
         });
 
-        if (dialog) {
-            dialog.addEventListener('click', function (event) {
-                if (event.target === dialog) {
-                    close();
-                }
-            });
-        }
-
         if (prevButton) {
             prevButton.addEventListener('click', showPrevious);
         }

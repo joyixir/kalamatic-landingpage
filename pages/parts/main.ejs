@@ -18,8 +18,11 @@
                                 <% DESCRIPTION_SECTION.features.forEach(function (feature) { %>
                                     <br>🔹 <%- feature %>
                                 <% }) %>
-                                <br><br><%- DESCRIPTION_SECTION.outro %>
+                                <% if (DESCRIPTION_SECTION.outro) { %>
+                                    <br><br><%- DESCRIPTION_SECTION.outro %>
+                                <% } %>
                             </p>
+                            <span class="description-section-badge"><%- DESCRIPTION_SECTION.teaserLabel %></span>
                         </div>
 
                         <div class="hero-visual">
