@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>https://www.kalamatic.com/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <loc>https://kalamatic.com/</loc>
+        <lastmod>2026-08-26</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/app-icon.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/app-icon.png</image:loc>
             <image:title>ایکون بازی کلماتیک</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/app-mockup.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/app-mockup.png</image:loc>
             <image:title>اسکرین شات گیم‌پلی کلماتیک</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/screenshots/leaderboard-fa.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/screenshots/leaderboard-fa.png</image:loc>
             <image:title>لیدربورد بازی کلماتیک</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/screenshots/lucky-wheel-fa.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/screenshots/lucky-wheel-fa.png</image:loc>
             <image:title>گردونه شانس بازی کلماتیک</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/screenshots/multi-languages-fa.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/screenshots/multi-languages-fa.png</image:loc>
             <image:title>پشتیبانی چندزبانه در کلماتیک</image:title>
         </image:image>
         <image:image>
-            <image:loc>https://www.kalamatic.com/assets/img/screenshots/chapters-fa.png</image:loc>
+            <image:loc>https://kalamatic.com/assets/img/screenshots/chapters-fa.png</image:loc>
             <image:title>فصل‌ها و داستان‌های بازی کلماتیک</image:title>
         </image:image>
     </url>
