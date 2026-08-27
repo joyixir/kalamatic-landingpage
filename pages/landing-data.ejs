@@ -66,6 +66,8 @@ LANDING_CHAT_ENABLED = Boolean(
     CHAT_CONFIG.provider === 'raychat' &&
     LANDING_CHAT_PAGE_CONFIG.raychatId
 );
+HEADER_INSTAGRAM_ENABLED = false;
+HEADER_FAQ_ENABLED = false;
 
 // Meta
 LANDING_META = {
@@ -99,18 +101,18 @@ HEADER_SECTION = {
             imageSrc: "assets/img/header-icons/email.png",
             label: "ایمیل"
         },
-        {
+        HEADER_FAQ_ENABLED ? {
             href: "#support-faq",
             imageSrc: "assets/img/header-icons/question.png",
             label: "سوالات متداول"
-        },
-        {
+        } : null,
+        HEADER_INSTAGRAM_ENABLED ? {
             href: "https://www.instagram.com/ordibeheshtstudio/",
             imageSrc: "assets/img/header-icons/instagram.png",
             label: "اینستاگرام",
             rel: "nofollow",
             target: "_blank"
-        }
+        } : null
     ].filter(Boolean)
 };
 

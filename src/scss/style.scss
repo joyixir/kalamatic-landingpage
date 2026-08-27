@@ -337,13 +337,29 @@ h6 {
     direction: ltr;
 
     @include up($bp-hero-row) {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        grid-template-areas:
+            "copy visual"
+            "teaser visual";
         align-items: center;
         gap: 28px;
     }
 
     @include up($bp-desktop) {
+        grid-template-columns: minmax(0, 1fr) 235px;
         gap: 48px;
+    }
+}
+
+.hero-teaser {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+
+    @include up($bp-hero-row) {
+        grid-area: teaser;
+        justify-content: flex-start;
     }
 }
 
@@ -392,12 +408,14 @@ h6 {
 
 .description-section .hero-copy {
     @include up($bp-hero-row) {
+        grid-area: copy;
         justify-content: center;
     }
 }
 
 .description-section .hero-visual {
     @include up($bp-hero-row) {
+        grid-area: visual;
         align-items: center;
     }
 }

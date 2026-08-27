@@ -12,6 +12,18 @@
             <section class="description-section" id="<%- DESCRIPTION_SECTION.sectionId %>">
                 <div class="description-section-inner">
                     <div class="hero-content">
+                        <div class="hero-teaser">
+                            <span class="description-section-badge"><%- DESCRIPTION_SECTION.teaserLabel %></span>
+                        </div>
+
+                        <div class="hero-visual">
+                            <div class="screenshot">
+                                <img src="<%- DESCRIPTION_SECTION.mockup.src %>?v=<%- DESCRIPTION_SECTION.mockup.version %>"
+                                     alt="<%- DESCRIPTION_SECTION.mockup.alt %>" width="<%- DESCRIPTION_SECTION.mockup.width %>" height="<%- DESCRIPTION_SECTION.mockup.height %>"
+                                     loading="lazy" decoding="async" fetchpriority="low">
+                            </div>
+                        </div>
+
                         <div class="hero-copy">
                             <p class="body">
                                 <%- DESCRIPTION_SECTION.intro %>
@@ -22,15 +34,6 @@
                                     <br><br><%- DESCRIPTION_SECTION.outro %>
                                 <% } %>
                             </p>
-                            <span class="description-section-badge"><%- DESCRIPTION_SECTION.teaserLabel %></span>
-                        </div>
-
-                        <div class="hero-visual">
-                            <div class="screenshot">
-                                <img src="<%- DESCRIPTION_SECTION.mockup.src %>?v=<%- DESCRIPTION_SECTION.mockup.version %>"
-                                     alt="<%- DESCRIPTION_SECTION.mockup.alt %>" width="<%- DESCRIPTION_SECTION.mockup.width %>" height="<%- DESCRIPTION_SECTION.mockup.height %>"
-                                     loading="lazy" decoding="async" fetchpriority="low">
-                            </div>
                         </div>
                     </div>
                 </div>
