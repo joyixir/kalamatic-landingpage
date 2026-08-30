@@ -21,6 +21,7 @@
 VERSION = "3.1.5";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
+    shareImage: "1.0.0",
     appMockup: "4.0.0",
     gameScreenshots: "6.6.0",
     appStoreBadge: "5.0.0",
@@ -47,12 +48,18 @@ DESCRIPTION_COPY = {
     outro: "دانلود کن و امروز اولین چالشت رو شروع کن."
 };
 LANDING_DESCRIPTION = `${DESCRIPTION_COPY.intro} ${DESCRIPTION_COPY.features.join(" 🔹 ")} 🔹 ${DESCRIPTION_COPY.outro}`;
-LANDING_SHARE_IMAGE = {
+LANDING_APP_ICON = {
     path: "/assets/img/app-icon.png",
     alt: "ایکون بازی کلماتیک",
     width: 256,
-    height: 256,
-    type: "image/png"
+    height: 256
+};
+LANDING_SHARE_IMAGE = {
+    path: "/assets/img/app-banner.jpg",
+    alt: "بنر بازی کلماتیک",
+    width: 1200,
+    height: 630,
+    type: "image/jpeg"
 };
 CONTACT_INFO = {
     phone: "+982632238307",
@@ -122,10 +129,10 @@ HEADER_SECTION = {
 HERO_SECTION = {
     title: LANDING_HERO_TITLE,
     icon: {
-        src: "assets/img/app-icon.png",
-        alt: LANDING_SHARE_IMAGE.alt,
-        width: LANDING_SHARE_IMAGE.width,
-        height: LANDING_SHARE_IMAGE.height,
+        src: LANDING_APP_ICON.path.replace(/^\//, ''),
+        alt: LANDING_APP_ICON.alt,
+        width: LANDING_APP_ICON.width,
+        height: LANDING_APP_ICON.height,
         version: LANDING_ASSET_VERSIONS.appIcon
     }
 };
@@ -334,7 +341,7 @@ LANDING_SCHEMA = [
         "name": "Joyixir OÜ",
         "alternateName": ["اردیبهشت استودیو", LANDING_APP_NAME],
         "url": LANDING_META.siteUrl,
-        "logo": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "logo": `${LANDING_META.siteUrl}${LANDING_APP_ICON.path.replace(/^\//, '')}?v=${LANDING_ASSET_VERSIONS.appIcon}`,
         "email": CONTACT_INFO.email,
         "telephone": CONTACT_INFO.phone,
         "sameAs": [
@@ -348,7 +355,7 @@ LANDING_SCHEMA = [
         "name": LANDING_APP_NAME,
         "alternateName": LANDING_TITLE,
         "url": LANDING_META.siteUrl,
-        "image": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "image": `${LANDING_META.siteUrl}${LANDING_APP_ICON.path.replace(/^\//, '')}?v=${LANDING_ASSET_VERSIONS.appIcon}`,
         "description": LANDING_DESCRIPTION,
         "inLanguage": LANDING_LANGUAGES,
         "applicationCategory": "GameApplication",
