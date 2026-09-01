@@ -35,6 +35,7 @@ LANDING_BROWSER_TITLE = LANDING_APP_NAME;
 LANDING_TITLE = LANDING_HERO_TITLE;
 LANDING_SHARE_TITLE = "بازی حدس کلمه برای آیفون و اندروید";
 LANDING_SHARE_DESCRIPTION = "";
+LANDING_SHARE_BANNER_ENABLED = false;
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
 DESCRIPTION_COPY = {
@@ -52,7 +53,8 @@ LANDING_APP_ICON = {
     path: "/assets/img/app-icon.png",
     alt: "ایکون بازی کلماتیک",
     width: 256,
-    height: 256
+    height: 256,
+    type: "image/png"
 };
 LANDING_SHARE_IMAGE = {
     path: "/assets/img/app-banner.jpg",
@@ -61,6 +63,12 @@ LANDING_SHARE_IMAGE = {
     height: 630,
     type: "image/jpeg"
 };
+LANDING_ACTIVE_SHARE_IMAGE = LANDING_SHARE_BANNER_ENABLED
+    ? LANDING_SHARE_IMAGE
+    : LANDING_APP_ICON;
+LANDING_ACTIVE_SHARE_IMAGE_VERSION = LANDING_SHARE_BANNER_ENABLED
+    ? LANDING_ASSET_VERSIONS.shareImage
+    : LANDING_ASSET_VERSIONS.appIcon;
 CONTACT_INFO = {
     phone: "+982632238307",
     phoneHref: "tel:+982632238307",
@@ -83,7 +91,7 @@ LANDING_META = {
     description: LANDING_DESCRIPTION,
     keywords: "کلماتیک, بازی حدس کلمه, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی مشابه آمیرزا, بازی مشابه فندق, چالش روزانه کلمات, جدول رده‌بندی بازی, بازی فارسی انگلیسی عربی ترکی",
     siteUrl: "https://kalamatic.com/",
-    imagePath: LANDING_SHARE_IMAGE.path,
+    imagePath: LANDING_ACTIVE_SHARE_IMAGE.path,
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     locale: "fa_IR",
     themeColor: "#000000"
