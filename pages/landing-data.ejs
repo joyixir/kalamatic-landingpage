@@ -21,6 +21,7 @@
 VERSION = "3.1.5";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
+    shareImage: "1.0.0",
     appMockup: "4.0.0",
     gameScreenshots: "6.6.0",
     appStoreBadge: "5.0.0",
@@ -29,9 +30,12 @@ LANDING_ASSET_VERSIONS = {
 
 // Core text
 LANDING_APP_NAME = "کلماتیک";
-LANDING_HERO_TITLE = "کلماتیک | بازی حدس کلمه برای آیفون و اندروید";
+LANDING_HERO_TITLE = "بازی حدس کلمات برای آیفون و اندروید";
 LANDING_BROWSER_TITLE = LANDING_APP_NAME;
 LANDING_TITLE = LANDING_HERO_TITLE;
+LANDING_SHARE_TITLE = "بازی حدس کلمه برای آیفون و اندروید";
+LANDING_SHARE_DESCRIPTION = "";
+LANDING_SHARE_BANNER_ENABLED = false;
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
 DESCRIPTION_COPY = {
@@ -45,13 +49,26 @@ DESCRIPTION_COPY = {
     outro: "دانلود کن و امروز اولین چالشت رو شروع کن."
 };
 LANDING_DESCRIPTION = `${DESCRIPTION_COPY.intro} ${DESCRIPTION_COPY.features.join(" 🔹 ")} 🔹 ${DESCRIPTION_COPY.outro}`;
-LANDING_SHARE_IMAGE = {
+LANDING_APP_ICON = {
     path: "/assets/img/app-icon.png",
     alt: "ایکون بازی کلماتیک",
     width: 256,
     height: 256,
     type: "image/png"
 };
+LANDING_SHARE_IMAGE = {
+    path: "/assets/img/app-banner.jpg",
+    alt: "بنر بازی کلماتیک",
+    width: 1200,
+    height: 630,
+    type: "image/jpeg"
+};
+LANDING_ACTIVE_SHARE_IMAGE = LANDING_SHARE_BANNER_ENABLED
+    ? LANDING_SHARE_IMAGE
+    : LANDING_APP_ICON;
+LANDING_ACTIVE_SHARE_IMAGE_VERSION = LANDING_SHARE_BANNER_ENABLED
+    ? LANDING_ASSET_VERSIONS.shareImage
+    : LANDING_ASSET_VERSIONS.appIcon;
 CONTACT_INFO = {
     phone: "+982632238307",
     phoneHref: "tel:+982632238307",
@@ -74,7 +91,7 @@ LANDING_META = {
     description: LANDING_DESCRIPTION,
     keywords: "کلماتیک, بازی حدس کلمه, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی مشابه آمیرزا, بازی مشابه فندق, چالش روزانه کلمات, جدول رده‌بندی بازی, بازی فارسی انگلیسی عربی ترکی",
     siteUrl: "https://kalamatic.com/",
-    imagePath: LANDING_SHARE_IMAGE.path,
+    imagePath: LANDING_ACTIVE_SHARE_IMAGE.path,
     robots: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
     locale: "fa_IR",
     themeColor: "#000000"
@@ -120,10 +137,10 @@ HEADER_SECTION = {
 HERO_SECTION = {
     title: LANDING_HERO_TITLE,
     icon: {
-        src: "assets/img/app-icon.png",
-        alt: LANDING_SHARE_IMAGE.alt,
-        width: LANDING_SHARE_IMAGE.width,
-        height: LANDING_SHARE_IMAGE.height,
+        src: LANDING_APP_ICON.path.replace(/^\//, ''),
+        alt: LANDING_APP_ICON.alt,
+        width: LANDING_APP_ICON.width,
+        height: LANDING_APP_ICON.height,
         version: LANDING_ASSET_VERSIONS.appIcon
     }
 };
@@ -332,7 +349,7 @@ LANDING_SCHEMA = [
         "name": "Joyixir OÜ",
         "alternateName": ["اردیبهشت استودیو", LANDING_APP_NAME],
         "url": LANDING_META.siteUrl,
-        "logo": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "logo": `${LANDING_META.siteUrl}${LANDING_APP_ICON.path.replace(/^\//, '')}?v=${LANDING_ASSET_VERSIONS.appIcon}`,
         "email": CONTACT_INFO.email,
         "telephone": CONTACT_INFO.phone,
         "sameAs": [
@@ -346,7 +363,7 @@ LANDING_SCHEMA = [
         "name": LANDING_APP_NAME,
         "alternateName": LANDING_TITLE,
         "url": LANDING_META.siteUrl,
-        "image": `${LANDING_META.siteUrl}${LANDING_SHARE_IMAGE.path.replace(/^\//, '')}?v=${VERSION}`,
+        "image": `${LANDING_META.siteUrl}${LANDING_APP_ICON.path.replace(/^\//, '')}?v=${LANDING_ASSET_VERSIONS.appIcon}`,
         "description": LANDING_DESCRIPTION,
         "inLanguage": LANDING_LANGUAGES,
         "applicationCategory": "GameApplication",

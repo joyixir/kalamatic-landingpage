@@ -7,6 +7,7 @@ const requiredFiles = [
     'index.html',
     '404.html',
     'CNAME',
+    'assets/img/app-banner.jpg',
     'assets/img/app-icon.png',
     'assets/img/app-mockup.png',
     'assets/img/header-icons/chat.png',
