@@ -22,7 +22,7 @@ VERSION = "3.1.5";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
     heroIcon: "1.0.0",
-    shareImage: "1.0.0",
+    shareImage: "1.0.1",
     appMockup: "4.1.0",
     gameScreenshots: "6.7.0",
     appStoreBadge: "5.1.0",
@@ -35,9 +35,9 @@ LANDING_HERO_TITLE = "بازی حدس کلمات برای آیفون و اندر
 LANDING_BROWSER_TITLE = LANDING_APP_NAME;
 LANDING_TITLE = LANDING_HERO_TITLE;
 LANDING_SHARE_TITLE = "بازی حدس کلمه برای آیفون و اندروید";
-LANDING_SHARE_DESCRIPTION = "";
 LANDING_SEO_DESCRIPTION = "هر روز یک چالش تازه";
-LANDING_SHARE_BANNER_ENABLED = false;
+LANDING_SHARE_DESCRIPTION = LANDING_SEO_DESCRIPTION;
+LANDING_SHARE_BANNER_ENABLED = true;
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
 DESCRIPTION_COPY = {
@@ -98,6 +98,8 @@ LANDING_META = {
     locale: "fa_IR",
     themeColor: "#000000"
 };
+LANDING_SHARE_IMAGE_URL = `${LANDING_META.siteUrl}${LANDING_META.imagePath.replace(/^\//, "")}?v=${LANDING_ACTIVE_SHARE_IMAGE_VERSION}`;
+LANDING_TWITTER_CARD = LANDING_SHARE_BANNER_ENABLED ? "summary_large_image" : "summary";
 
 // Header section
 HEADER_SECTION = {
