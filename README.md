@@ -102,3 +102,4 @@ There is no need to run a local publish command anymore.
 - GitHub Actions is now the deployment path for GitHub Pages.
 - `dist/` is disposable build output. Edit source files instead.
 - The repo no longer includes a separate support mini-site. Support lives inside the main landing page only.
+- External host issues such as `data.kalamatic.com` SSL or vhost problems are outside this repo. See `docs/ops/data-kalamatic-com-ssl.md`.

@@ -1,8 +1,8 @@
 <% 
 // Edit this file when you want to change landing content, links, or assets.
 // Main landing visuals live in:
-// - src/img/app-icon.png
-// - src/img/app-mockup.png
+// - src/img/app-icon.webp
+// - src/img/app-mockup.webp
 // - src/img/header-icons/
 // - src/img/screenshots/
 // - src/img/store-badges/
@@ -21,11 +21,12 @@
 VERSION = "3.1.5";
 LANDING_ASSET_VERSIONS = {
     appIcon: VERSION,
+    heroIcon: "1.0.0",
     shareImage: "1.0.0",
-    appMockup: "4.0.0",
-    gameScreenshots: "6.6.0",
-    appStoreBadge: "5.0.0",
-    storeBadges: "5.0.0"
+    appMockup: "4.1.0",
+    gameScreenshots: "6.7.0",
+    appStoreBadge: "5.1.0",
+    storeBadges: "5.1.0"
 };
 
 // Core text
@@ -35,7 +36,8 @@ LANDING_BROWSER_TITLE = LANDING_APP_NAME;
 LANDING_TITLE = LANDING_HERO_TITLE;
 LANDING_SHARE_TITLE = "بازی حدس کلمه برای آیفون و اندروید";
 LANDING_SHARE_DESCRIPTION = "";
-LANDING_SHARE_BANNER_ENABLED = false;
+LANDING_SEO_DESCRIPTION = "هر روز یک چالش تازه";
+LANDING_SHARE_BANNER_ENABLED = true;
 LANDING_LANGUAGES = ["fa", "en", "ar", "tr"];
 LANDING_LANGUAGE_LABEL = "فارسی، انگلیسی، عربی و ترکی";
 DESCRIPTION_COPY = {
@@ -88,7 +90,7 @@ HEADER_FAQ_ENABLED = false;
 
 // Meta
 LANDING_META = {
-    description: LANDING_DESCRIPTION,
+    description: LANDING_SEO_DESCRIPTION,
     keywords: "کلماتیک, بازی حدس کلمه, بازی حدس کلمات, بازی کلمات فارسی, بازی حدس کلمه آیفون, بازی حدس کلمه اندروید, بازی چندزبانه, بازی مشابه آمیرزا, بازی مشابه فندق, چالش روزانه کلمات, جدول رده‌بندی بازی, بازی فارسی انگلیسی عربی ترکی",
     siteUrl: "https://kalamatic.com/",
     imagePath: LANDING_ACTIVE_SHARE_IMAGE.path,
@@ -137,23 +139,23 @@ HEADER_SECTION = {
 HERO_SECTION = {
     title: LANDING_HERO_TITLE,
     icon: {
-        src: LANDING_APP_ICON.path.replace(/^\//, ''),
+        src: "assets/img/app-icon.webp",
         alt: LANDING_APP_ICON.alt,
         width: LANDING_APP_ICON.width,
         height: LANDING_APP_ICON.height,
-        version: LANDING_ASSET_VERSIONS.appIcon
+        version: LANDING_ASSET_VERSIONS.heroIcon
     }
 };
 
 // Description section
 DESCRIPTION_SECTION = {
     sectionId: "description",
-    teaserLabel: "نسخه جدید به‌زودی",
+    teaserLabel: "نسخه جدید",
     intro: DESCRIPTION_COPY.intro,
     features: DESCRIPTION_COPY.features,
     outro: DESCRIPTION_COPY.outro,
     mockup: {
-        src: "assets/img/app-mockup.png",
+        src: "assets/img/app-mockup.webp",
         alt: "اسکرین شات گیم‌پلی",
         width: 255,
         height: 512,
@@ -258,7 +260,7 @@ DOWNLOAD_SECTION = {
     buttons: [
         {
             href: "https://redirect.appmetrica.yandex.com/serve/243823473116400451",
-            imageSrc: "assets/img/store-badges/app-store-badge.png",
+            imageSrc: "assets/img/store-badges/app-store-badge.webp",
             imageVersion: LANDING_ASSET_VERSIONS.appStoreBadge,
             alt: "دانلود کلماتیک از اپ استور",
             width: 720,
@@ -266,7 +268,7 @@ DOWNLOAD_SECTION = {
         },
         {
             href: "https://redirect.appmetrica.yandex.com/serve/963685243733231438?v=4.5.1",
-            imageSrc: "assets/img/store-badges/cafe-bazaar-badge.png",
+            imageSrc: "assets/img/store-badges/cafe-bazaar-badge.webp",
             imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
             alt: "دانلود کلماتیک از کافه بازار",
             width: 720,
@@ -274,7 +276,7 @@ DOWNLOAD_SECTION = {
         },
         {
             href: "https://redirect.appmetrica.yandex.com/serve/1181118785915021816?v=4.5.1",
-            imageSrc: "assets/img/store-badges/myket-badge.png",
+            imageSrc: "assets/img/store-badges/myket-badge.webp",
             imageVersion: LANDING_ASSET_VERSIONS.storeBadges,
             alt: "دانلود کلماتیک از مایکت",
             width: 720,
@@ -292,28 +294,28 @@ SCREENSHOTS_SECTION = {
     nextLabel: "تصویر بعدی",
     items: [
         {
-            src: "assets/img/screenshots/leaderboard-fa.png",
+            src: "assets/img/screenshots/leaderboard-fa.webp",
             alt: "اسکرین‌شات لیدربورد و رقابت با بازیکنان در بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
         },
         {
-            src: "assets/img/screenshots/lucky-wheel-fa.png",
+            src: "assets/img/screenshots/lucky-wheel-fa.webp",
             alt: "اسکرین‌شات گردونه شانس و جوایز در بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
         },
         {
-            src: "assets/img/screenshots/chapters-fa.png",
+            src: "assets/img/screenshots/chapters-fa.webp",
             alt: "اسکرین‌شات فصل‌ها و داستان‌های بازی کلماتیک",
             width: 1284,
             height: 2778,
             version: LANDING_ASSET_VERSIONS.gameScreenshots
         },
         {
-            src: "assets/img/screenshots/multi-languages-fa.png",
+            src: "assets/img/screenshots/multi-languages-fa.webp",
             alt: "اسکرین‌شات بخش چندزبانه بازی کلماتیک",
             width: 1284,
             height: 2778,
