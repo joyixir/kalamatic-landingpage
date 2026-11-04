@@ -1,7 +1,7 @@
 'use strict';
 
 var chatSiteConfig = {
-    supportContactUrl: 'tel:+982632238307',
+    supportContactUrl: 'mailto:info@ordibeheshtstudio.com',
     chat: {
         // Set to true only when you want chat actions enabled across the landing.
         enabled: false,
