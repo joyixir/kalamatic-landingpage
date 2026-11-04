@@ -72,8 +72,6 @@ LANDING_ACTIVE_SHARE_IMAGE_VERSION = LANDING_SHARE_BANNER_ENABLED
     ? LANDING_ASSET_VERSIONS.shareImage
     : LANDING_ASSET_VERSIONS.appIcon;
 CONTACT_INFO = {
-    phone: "+982632238307",
-    phoneHref: "tel:+982632238307",
     email: "info@ordibeheshtstudio.com",
     emailHref: "mailto:info@ordibeheshtstudio.com"
 };
@@ -106,17 +104,12 @@ HEADER_SECTION = {
     title: LANDING_APP_NAME,
     actions: [
         LANDING_CHAT_ENABLED ? {
-            href: CONTACT_INFO.phoneHref,
+            href: CONTACT_INFO.emailHref,
             imageSrc: "assets/img/header-icons/chat.png",
             label: "چت",
             chatTrigger: true,
             chatDirect: true
         } : null,
-        {
-            href: CONTACT_INFO.phoneHref,
-            imageSrc: "assets/img/header-icons/contact.png",
-            label: "تماس"
-        },
         {
             href: CONTACT_INFO.emailHref,
             imageSrc: "assets/img/header-icons/email.png",
@@ -170,15 +163,11 @@ SUPPORT_SECTION = {
     enabled: true,
     sectionId: "support",
     contactTitle: "ارتباط با پشتیبانی",
-    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه‌های زیر با ما در ارتباط باش تا پیگیری کنیم.",
+    contactBody: "اگر حین بازی به مشکلی برخوردی، از راه زیر با ما در ارتباط باش تا پیگیری کنیم.",
     chatAction: LANDING_CHAT_ENABLED ? {
-        href: CONTACT_INFO.phoneHref,
+        href: CONTACT_INFO.emailHref,
         label: "چت"
     } : null,
-    contactLink: {
-        href: CONTACT_INFO.phoneHref,
-        label: "تماس"
-    },
     emailLink: {
         href: CONTACT_INFO.emailHref,
         label: "ایمیل"
@@ -222,7 +211,7 @@ FAQ_SECTION = {
         },
         {
             question: "چالش روزانه چطور کار می‌کنه؟",
-            answer: "شما یک چالش ۷ روزه دارید و باید هر روز، چالش همون روز رو کامل کنید. با کامل کردن هر روز، جایزه همون روز رو می‌گیرید، امتیاز میگیرید و وارد لیدربورد روزانه میشید. اگر ۷ روز پشت سر هم چالش‌ها رو کامل کنید، یک جایزه ویژه هم دریافت می‌کنید."
+            answer: "هر روز یه مرحله جدید توی تقویم چالش باز می‌شه. مرحله رو انتخاب کن و قبل از تموم شدن زمان، کلمه‌ها رو پیدا کن. با کامل کردن مرحله‌ها، پیشرفتت توی تقویم ثبت می‌شه. هر ماه با رسیدن به تعداد مشخصی مرحلهٔ تکمیل‌شده، می‌تونی جایزه بگیری. اگه یه روز رو از دست دادی، می‌تونی توی همون ماه با تماشای ویدیو، مرحله‌اش رو بازی کنی."
         },
         {
             question: "چرا چالش روزانه یا گردونه شانس برای من نمیاد؟",
@@ -355,7 +344,6 @@ LANDING_SCHEMA = [
         "url": LANDING_META.siteUrl,
         "logo": `${LANDING_META.siteUrl}${LANDING_APP_ICON.path.replace(/^\//, '')}?v=${LANDING_ASSET_VERSIONS.appIcon}`,
         "email": CONTACT_INFO.email,
-        "telephone": CONTACT_INFO.phone,
         "sameAs": [
             "https://www.instagram.com/ordibeheshtstudio/"
         ]
